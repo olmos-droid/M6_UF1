@@ -63,3 +63,25 @@ per paraula: “Hola em dic” -> “dic em Hola”
 
 per lletra: “Hola em dic” -> “cid me aloH”
 */
+function reverse22() {
+  let str = "hola"
+  
+  let reverse = str.split("").reverse().join("");
+  console.log(reverse);
+  
+}
+function reverseString() {
+  let str="hola que tal"
+  let newString = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+      newString += str[i];
+  }
+  console.log(newString);
+}
+function reverseString() {
+  let str= 'hola'
+  if (str === "")
+    return "";
+  else
+    return reverseString(str.substr(1)) + str.charAt(0);
+}
