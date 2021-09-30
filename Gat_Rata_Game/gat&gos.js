@@ -24,13 +24,13 @@ var posGat = 0;
 var posRata = 29;
 var joc = false;
 
-function tirarDau() {
+function tirarDau(player) {
   let resul = Math.random() * (maxDau - minDau) + minDau;
-  console.log("Dau =", Number.parseInt(resul));
+  console.log("Dau tirat per", player, " = ", Number.parseInt(resul));
   return Number.parseInt(resul);
 }
 function tiraGat() {
-  let punts = tirarDau();
+  let punts = tirarDau("gat");
   posGat = posGat + punts;
   if (posGat > taulerMax) {
     posGat = taulerMin + (posGat - taulerMax) - 1;
@@ -43,7 +43,7 @@ function tiraGat() {
   return true;
 }
 function tiraRata() {
-  let punts = tirarDau();
+  let punts = tirarDau("rata");
   posRata = posRata - punts;
   if (posRata < taulerMin) {
     posRata = taulerMax + posRata;
@@ -52,16 +52,25 @@ function tiraRata() {
   console.log("posicio de la Rata ", posRata);
   return true;
 }
-function whoWin() {
+function whoWin(player) {
   if (posRata == posGat) {
-    console.log("Rata Wins");
+    player;
     joc = true;
+   º  
+    console.info(player, "Wins");
   }
 }
-
 function start() {
-  while (!joc) {
-    tiraGat();
-    tiraRata();
-  }
+  console.time("comença el joc");
+  do {
+    if (!joc) {
+      tiraGat();
+      whoWin("gat");
+    }
+    if (!joc) {
+      tiraRata();
+      whoWin("rata");
+    }
+  } while (!joc);
+  console.timeEnd("comença el joc");
 }
