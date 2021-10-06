@@ -16,61 +16,71 @@
 
 //  Compte! fem servir l'ojecte Math.random() per la tirada del dau. Aquestes funcions les veurem en la propera sessió.
 
-const taulerMax = 59;
-const taulerMin = 0;
-const minDau = 1;
-const maxDau = 6;
-var posGat = 0;
-var posRata = 29;
-var joc = false;
 
+//declaro les variable segons si son constant o no.
+const taulerMax = 59; // tamany max del tauler
+const taulerMin = 0;//tauler minim del tauler
+const minDau = 1; //les cares minimes del dau
+const maxDau = 6;//les cares maximes del dau
+var posGat = 0; //la posicio inicial on comença el gat
+var posRata = 29; //la posicio inicial on comença la rata
+var joc = false; // booleana per saber si el joc acaba (qui ha guañat)
+
+
+//aquesta funcio tira el dau oi li passa per parametre el jugador que tira el dau
 function tirarDau(player) {
   let resul = Math.random() * (maxDau - minDau) + minDau;
   console.log("Dau tirat per", player, " = ", Number.parseInt(resul));
   return Number.parseInt(resul);
 }
+//funcio en la que tira el gat
 function tiraGat() {
   let punts = tirarDau("gat");
   posGat = posGat + punts;
   if (posGat > taulerMax) {
     posGat = taulerMin + (posGat - taulerMax) - 1;
-    if (posRata == posGat) {
-      console.log("Gat Wins");
-      joc = true;
-    }
   }
   console.log("posicio del gat " + posGat);
   return true;
 }
+//funcio en la que tira la rata
 function tiraRata() {
   let punts = tirarDau("rata");
   posRata = posRata - punts;
   if (posRata < taulerMin) {
     posRata = taulerMax + posRata;
   }
-
   console.log("posicio de la Rata ", posRata);
   return true;
 }
+
+//funcio de mirar que guanya se li pasa el jugador que a tirat el dau
 function whoWin(player) {
   if (posRata == posGat) {
     player;
     joc = true;
-   º  
     console.info(player, "Wins");
   }
 }
+
+//comença el joc amb un do -while fins que algu dels dos trepitja a l'altre
 function start() {
+  //posa el crono per mirar quan tarda la jugada
   console.time("comença el joc");
   do {
     if (!joc) {
+      //tira el gat
       tiraGat();
+      //comprovacio de si ha atrapat a la rata
       whoWin("gat");
     }
     if (!joc) {
+      // tira la rata
       tiraRata();
+      // mirem si la rata trepitja le gat
       whoWin("rata");
     }
   } while (!joc);
+  //una vegada hi ha guanyador para el crono per mirar quanha durat la partida
   console.timeEnd("comença el joc");
 }
