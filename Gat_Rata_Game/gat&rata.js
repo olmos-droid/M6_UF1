@@ -65,6 +65,7 @@ function whoWin(player) {
 
 //comença el joc amb un do -while fins que algu dels dos trepitja a l'altre
 function start() {
+  
   //posa el crono per mirar quan tarda la jugada
   console.time("comença el joc");
   do {
