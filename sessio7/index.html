@@ -20,20 +20,37 @@
             <tr>
                 <td>
                     <button
-                        class="btn btn-primary"
-                        onclick="checkPass(document.getElementById('pass').value)"
+                        class="btn btn-outline-light"
+                        onclick="checkPass(document.getElementById('textoToCheck').value)"
                     >
-                        Ex 4
+                        CheckPass
                     </button>
                 </td>
-                <td><button class="btn btn-primary">2 o 3</button></td>
-                <td colspan="2"><input type="text" name="" id="pass" /></td>
+                <td>
+                    <button
+                        class="btn btn-outline-light"
+                        onclick="checkMail(document.getElementById('textoToCheck').value)"
+                    >
+                        CheckMail
+                    </button>
+                </td>
+                <td>
+                    <button
+                        class="btn btn-outline-light"
+                        onclick="checkRepeat(document.getElementById('textoToCheck').value)"
+                    >
+                        CheckRepeat
+                    </button>
+                </td>
+                <td colspan="2">
+                    <input type="text" name="" id="textoToCheck" />
+                </td>
             </tr>
             <tr>
-                <td><button class="btn btn-primary">text1</button></td>
-                <td><button class="btn btn-primary">text2</button></td>
-                <td><button class="btn btn-primary">text3</button></td>
-                <td><button class="btn btn-primary">text4</button></td>
+                <td><button class="btn btn-outline-light">text1</button></td>
+                <td><button class="btn btn-outline-light">text2</button></td>
+                <td><button class="btn btn-outline-light">text3</button></td>
+                <td><button class="btn btn-outline-light">text4</button></td>
             </tr>
             <tr>
                 <td colspan="4">
