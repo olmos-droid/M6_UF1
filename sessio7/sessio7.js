@@ -6,8 +6,8 @@ mirar: que tingui una majuscila , que minim tingui 8 digits, y que tingui algun 
 */
 
 function checkPass(pass) {
-    // var regexp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/;
-    var regexp = /^(?=.*[!@#$%^&*/./-/_])(?=.{8,})/;
+    var regexp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*/./-/_])(?=.{8,})/;
+    // var regexp = /^(?=.*[!@#$%^&*/./-/_])(?=.{8,})/;
 
     console.log(pass);
     console.log(regexp.test(pass));
