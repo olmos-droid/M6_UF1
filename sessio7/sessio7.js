@@ -9,14 +9,14 @@ function checkPass(pass) {
     var regexp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*/./-/_])(?=.{8,})/;
     // var regexp = /^(?=.*[!@#$%^&*/./-/_])(?=.{8,})/;
 
-    console.log(pass);
-    console.log(regexp.test(pass));
+    document.getElementById("textarea").value=(pass);
+    document.getElementById("textarea").value=(regexp.test(pass));
 }
 function checkMail(email) {
     var regexp =
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    console.log(email);
-    console.log(regexp.test(email));
+    document.getElementById("textarea").value=email;
+    document.getElementById("textarea").value=(regexp.test(email));
 }
 function checkRepeat(cadena) {
     let contadorLLetres = 0;
@@ -37,7 +37,7 @@ function checkRepeat(cadena) {
         }
     }
     if (cadenaOriginal) {
-        return console.log(novaCadena);
+        return document.getElementById("textarea").value=(novaCadena);
     }
-    return console.log(cadena);
+    return document.getElementById("textarea").value=(cadena);
 }
