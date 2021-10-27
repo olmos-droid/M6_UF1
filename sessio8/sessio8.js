@@ -77,3 +77,4 @@ function screenEx(params) {
     alert("ventana mas pequeña que el 50%");
   }
 }
+
