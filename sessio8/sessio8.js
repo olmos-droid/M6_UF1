@@ -73,7 +73,7 @@ function screenEx(params) {
   let maxH = screen.availHeight / 2;
   let minW = screen.availWidth / 2;
 
-  if (h < maxH / 2 && w < minW / 2) {
+  if (h < maxH && w < minW) {
     alert("ventana mas pequeña que el 50%");
   }
 }
