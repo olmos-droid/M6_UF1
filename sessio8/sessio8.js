@@ -67,15 +67,13 @@ function nav() {
   */
 }
 function screenEx(params) {
-  
-  let h=window.outerHeight;
-  let w=window.outerWidth;
+  let h = window.outerHeight;
+  let w = window.outerWidth;
 
-  let maxH=screen.availHeight
-  let minW=screen.availWidth
+  let maxH = screen.availHeight / 2;
+  let minW = screen.availWidth / 2;
 
-  if (h<(maxH/2) && (w<minW/2)){
-    alert('ventana mas pequeña que el 50%')
+  if (h < maxH / 2 && w < minW / 2) {
+    alert("ventana mas pequeña que el 50%");
   }
 }
-
