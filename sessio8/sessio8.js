@@ -15,23 +15,67 @@
 //ejercici que obri una finezstra i quan canvii de minut es tanqui
 
 function openCloseMinute() {
-    let date = new Date(Date.now());
-    let minutStart = date.getMinutes();
-    let minutEnd = minutStart + 1;
+  let date = new Date(Date.now());
+  let minutStart = date.getMinutes();
+  let minutEnd = minutStart + 1;
 
-    console.log(minutStart);
-    console.log(minutEnd);
+  console.log(minutStart);
+  console.log(minutEnd);
 
-    var window1 = new Window();
-    // setTimeout(function () {
-    //     notification.close();
-    // }, 1000);
+  var window1 = new Window();
+  // setTimeout(function () {
+  //     notification.close();
+  // }, 1000);
 
-    // while (minutStart!=minutEnd){
-    //     date = Date.now();
-    //     minutStart = date.getMinutes();
-    // }
-    // close();
+  // while (minutStart!=minutEnd){
+  //     date = Date.now();
+  //     minutStart = date.getMinutes();
+  // }
+  // close();
 
-    // alert('encara no a pasat un minut');
+  // alert('encara no a pasat un minut');
 }
+function nav() {
+  console.log("estas utilizant el navegador " + navigator.appName);
+  let len = navigator.language;
+
+  switch (len) {
+    case "es":
+      console.log("hola, como estas?");
+      break;
+    case "en":
+      console.log("hello, how are u");
+      break;
+    case "ca":
+      console.log("hola,com estas?");
+      break;
+    default:
+      break;
+  }
+  console.log("El teu sistema operatiu es el " + navigator.platform);
+  let navegadors = navigator.userAgent;
+  /*
+  console.log(`Els navegadors utilizats son : ${navegadors}`);
+  console.log(`appName: ${window.navigator.appName}`);
+  console.log(`appVersion: ${navigator.appVersion}`);
+  console.log(`cookieEnabled: ${navigator.cookieEnabled}`);
+  console.log(`language: ${navigator.language}`);
+  console.log(`onLine: ${navigator.onLine}`);
+  console.log(`platform: ${navigator.platform}`);
+  console.log(`product: ${navigator.product}`);
+  console.log(`userAgent: ${navigator.userAgent}`);
+  */
+}
+function screenEx(params) {
+  
+  let h=window.outerHeight;
+  let w=window.outerWidth;
+
+  let maxH=screen.availHeight
+  let minW=screen.availWidth
+
+  if (h<(maxH/2) && (w<minW/2)){
+    alert('ventana mas pequeña que el 50%')
+  }
+}
+
