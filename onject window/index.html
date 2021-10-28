@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objectos del navegador . Window</title>
+  </head>
+  <body>
+    <p id="ventana"></p>
+    <script>
+      //propiedades basicas de window
+      window.name = "mi ventana";
+      let texto = "";
+      texto += "<br/> Nombre: " + window.name;
+      //tamaño de la ventana con toolbar y scrollbar
+      texto += "<br/> alto externo: " + window.outerHeight;
+      texto += "<br/> ancho externo: " + window.outerWidth;
+      //tamaño de la ventana SIN toolbar y scrollbar
+      texto += "<br/> alto interno: " + window.innerHeight;
+      texto += "<br/> ancho interno: " + window.innerWidth;
+      //scroll horizontal y vertical
+      texto += "<br/> scroll horizontal: " + window.pageXOffset;
+      texto += "<br/> scroll vertical " + window.pageYOffset;
+      //distancia de la esquina superior izquierda
+      texto += "<br/>distancia desde la izq: " + window.screenX;
+      texto += "<br/>distancia desde arriba:" + window.screenY;
+
+      document.getElementById("ventana").innerHTML = texto;
+
+      /*propiedades con otras ventana
+      -closed: devuelve un booleano si la ventana esta cerrada
+      -opener:_ devuelve una referencia con la ventana que creo la ventana actual.
+      -parent: devuelve la ventana padre de la ventana actual
+      -self : devuela la ventana actual
+      */
+      /* otros objectos del navegador
+     window.document
+     window.navigator
+     window.screen
+     window.history
+     window.location
+     */
+
+      //metodos window mas importante
+
+      var miVentana; //crearla fuera de las funciones para acceder a ella
+      function crearVentana() {
+        // miVentana=window.open("http://www.google.com");
+        miVentana = window.open("", "", "width=500,height=200");
+        miVentana.document.write("<h1>Mi ventana</h1>");
+      }
+      function cerrarVentana() {
+        miVentana.close();
+      }
+      //resizeby redimensiona una ventana respecto a su tamaño actual
+      function redimensionarVentana() {
+        miVentana.resizeBy(10, 10);
+      }
+      //resizeto redimensiona una ventana numero de mpixerls indicado
+      function redimensionarVentana2() {
+        miVentana.resizeTo(500, 500);
+      }
+      //moveby mueve una ventana respecto a su posicion actual
+      function moveVentana() {
+        miVentana.moveBy(10, 10);
+      }
+      //moveto mueve una ventana a lugar indicado
+      function moveVentana2() {
+        miVentana.moveBy(10, 10);
+      }
+      //scrollby mueve el scroll respecto a su posicion actual
+      //scrollto mueve el scroll respecto a su posicion determinada
+
+      //focus() : pone el focus en la ventana indicada
+      function enfoca() {
+        miVentana.focus();
+      }
+      //print(): impriume la ventana indicada
+      function imprimir() {
+        print();
+        miVentana.print();
+      }
+
+      //stop() detiene la carga de la ventana
+    </script>
+    <button onclick="crearVentana()">crear ventana</button>
+    <button onclick="cerrarVentana()">cerrar ventana</button>
+    <button onclick="redimensionarVentana()">redimensiona ventana</button>
+    <button onclick="redimensionarVentana2()">redimensiona ventana2</button>
+    <button onclick="moveVentana()">move ventana</button>
+    <button onclick="moveVentana2()">move ventana2</button>
+    <button onclick="enfoca()">enfocar</button>
+    <button onclick="imprimir()">imprimir</button>
+  </body>
+</html>
