@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="app.js"></script>
+    <title>localstorage</title>
+  </head>
+  <body>
+    <div>
+      <p>session storage</p>
+      <button id="crear">Crear</button>
+      <button id="mostrar">mostrar</button>
+      <button id="modificar">modificar</button>
+      <button id="eliminar">eliminar</button>
+    </div>
+    <div>
+      <p>local storage</p>
+      <button id="crear2">Crear</button>
+      <button id="mostrar2">mostrar</button>
+      <button id="modificar2">modificar</button>
+      <button id="eliminar2">eliminar</button>
+    </div>
+    <div>
+      <p>cookie</p>
+      <button id="crear3">Crear</button>
+      <button id="mostrar3">mostrar</button>
+      <button id="modificar3">modificar</button>
+      <button id="eliminar3">eliminar</button>
+    </div>
+    <script>
+      document.getElementById("crear").addEventListener("click", crear);
+      document.getElementById("mostrar").addEventListener("click", mostrar);
+      document.getElementById("modificar").addEventListener("click", modificar);
+      document.getElementById("eliminar").addEventListener("click", eliminar);
+
+      document.getElementById("crear2").addEventListener("click", crear2);
+      document.getElementById("mostrar2").addEventListener("click", mostrar2);
+      document
+        .getElementById("modificar2")
+        .addEventListener("click", modificar2);
+      document.getElementById("eliminar2").addEventListener("click", eliminar2);
+
+      document.getElementById("crear3").addEventListener("click", crear3);
+      document.getElementById("mostrar3").addEventListener("click", mostrar3);
+      document
+        .getElementById("modificar3")
+        .addEventListener("click", modificar3);
+      document.getElementById("eliminar3").addEventListener("click", eliminar3);
+
+      function crear() {
+        sessionStorage.setItem("usuario", "marko");
+        sessionStorage.setItem("email", "marko@gmail.com");
+      }
+      function mostrar() {
+        alert(
+          sessionStorage.getItem("usuario") +
+            "\n" +
+            sessionStorage.getItem("email")
+        );
+      }
+      function modificar() {
+        sessionStorage.setItem("usuario", "marko123");
+        sessionStorage.setItem("email", "marko123@gmail.com");
+      }
+      function eliminar() {
+        sessionStorage.removeItem("usuario");
+        sessionStorage.removeItem("email");
+      }
+
+      function crear2() {
+        localStorage.setItem("usuario", "marko");
+        localStorage.setItem("email", "marko@gmail.com");
+      }
+      function mostrar2() {
+        alert(
+          localStorage.getItem("usuario") + "\n" + localStorage.getItem("email")
+        );
+      }
+      function modificar2() {
+        localStorage.setItem("usuario", "marko123");
+        localStorage.setItem("email", "marko123@gmail.com");
+      }
+      function eliminar2() {
+        localStorage.removeItem("usuario");
+        localStorage.removeItem("email");
+      }
+
+      function crear3() {
+        document.cookie =
+          "usuario=marko; expires=Fri, 31 Dec 2021 12:00:00 UTC; path=/; ";
+      }
+      function mostrar3() {
+        alert(document.cookie);
+      }
+      function modificar3() {
+        document.cookie ="usuario=marko1234; expires=Fri, 31 Dec 2021 12:00:00 UTC; path=/; ";
+      }
+      function eliminar3() {
+        document.cookie =
+          "usuario=marko; expires=Fri, 31 Dec 2019 12:00:00 UTC; path=/; ";
+      }
+    </script>
+  </body>
+</html>

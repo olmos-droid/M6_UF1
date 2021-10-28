@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Navigator</title>
+</head>
+<body>
+    <p id="navegador"></p>
+    <script>
+        /*
+        -guarda info del navegador
+        */
+       //propiedades
+       let text="";
+       //
+       text+="<br/>CodeName: " +navigator.appCodeName;
+       text+="<br/>AppName: " +navigator.appName;
+       text+="<br/>AppVersion: " +navigator.appVersion;
+       text+="<br/>Platform: " +navigator.platform;
+       text+="<br/>Product: " +navigator.product;
+       text+="<br/>language: " +navigator.language;
+       text+="<br/>languages: " +navigator.languages;
+       text+="<br/>online: " +navigator.onLine;
+       text+="<br/>cookie activadas: " +navigator.cookieEnabled;
+       text+="<br/>Cabecera userAgent: " +navigator.userAgent;
+       
+       text+="<br/>Java activado: " +navigator.javaEnabled();
+
+
+       
+
+
+
+       document.getElementById("navegador").innerHTML=text;
+    </script>
+    
+</body>
+</html>

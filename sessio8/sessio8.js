@@ -67,23 +67,15 @@ function nav() {
   */
 }
 function screenEx(params) {
-    let h = window.outerHeight;
-    let w = window.outerWidth;
+  let h = window.outerHeight;
+  let w = window.outerWidth;
 
-    let maxH = screen.availHeight / 2;
-    console.log(maxH);
-    let maxW = screen.availWidth / 2;
-    console.log(maxW);
+  let maxH = screen.availHeight / 2;
+  let minW = screen.availWidth / 2;
 
-    document.getElementById("alto").innerHTML = h;
-    document.getElementById("ancho").innerHTML = w;
-
-    if ((h < maxH) && (w < maxW)) {
-        alert("ventana mas pequeña que el 50%");
-    }
-}
-function reload(){
-   ;
+  if (h < maxH && w < minW) {
+    alert("ventana mas pequeña que el 50%");
+  }
 }
 
 
