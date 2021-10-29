@@ -76,16 +76,21 @@ function esrever(str) {
   }
 }
 function screen50() {
-  let finestra = window.open("", "");
-
-  self.focus();
-  document.getElementById("textarea").value =
-    "La finestra que al ser inferior del 50% salta una alerta";
+  let maxH = screen.availHeight / 2;
+  let minW = screen.availWidth / 2;
   let h = window.outerHeight;
   let w = window.outerWidth;
 
-  let maxH = screen.availHeight / 2;
-  let minW = screen.availWidth / 2;
+  let miVentana = window.open(
+    "",
+    "_blank",
+    "width=500,height=200 ,menubar=yes,location=yes,resizable=yes top=500 left=500"
+  );
+  miVentana.document.write("<h1>M06</h1>");
+  miVentana.focus();
+
+  document.getElementById("textarea").value =
+    "La finestra que al ser inferior del 50% salta una alerta";
 
   if (h < maxH && w < minW) {
     alert("ventana mas pequeña que el 50%");
@@ -93,9 +98,44 @@ function screen50() {
 }
 function localS(str) {
   if (str) {
-    localStorage.setItem("item", str);
+    localStorage.setItem(str, str);
+    document.getElementById("textarea").value =
+      "Operacio completada ,storelocal";
   } else {
     return (document.getElementById("textarea").value =
       "introdueix dades al camp de text");
   }
+}
+function crearCookie(str) {
+  if (str) {
+    document.getElementById("textarea").value = "Cookie afegida";
+    return (document.cookie =
+      str + "=" + str + "; expires=Fri, 31 Dec 2021 12:00:00 UTC; path=/; ");
+  } else {
+    return (document.getElementById("textarea").value =
+      "introdueix dades al camp de text");
+  }
+}
+function infoNav() {
+  let text = "";
+  text += "<br/>CodeName: " + navigator.appCodeName;
+  text += "<br/>AppName: " + navigator.appName;
+  text += "<br/>AppVersion: " + navigator.appVersion;
+  text += "<br/>Platform: " + navigator.platform;
+  text += "<br/>Product: " + navigator.product;
+  text += "<br/>language: " + navigator.language;
+  text += "<br/>languages: " + navigator.languages;
+  text += "<br/>online: " + navigator.onLine;
+  text += "<br/>cookie activadas: " + navigator.cookieEnabled;
+  text += "<br/>Cabecera userAgent: " + navigator.userAgent;
+  text += "<br/>Java activado: " + navigator.javaEnabled();
+  document.getElementById("textarea").value = text;
+}
+function showLS() {
+  let text = "";
+  for (var i = 0; i < localStorage.length; i++) {
+    const loc = localStorage.getItem(localStorage.key(i));
+    text += loc + "\n";
+  }
+  document.getElementById("textarea").value = text;
 }
