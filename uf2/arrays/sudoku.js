@@ -26,7 +26,7 @@ function pinta_sudoku() {
 }
 function checkRow(matriu, row, col,numeros) {
     const setRow = new Set(matriu[row]);
-    const arrayCol = 
+    // const arrayCol = 
     const setCol = new Set(matriu[row][col]);
 
     
