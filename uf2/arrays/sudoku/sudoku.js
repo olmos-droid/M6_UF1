@@ -14,14 +14,14 @@ function start() {
         "<table id='table' class=' table-bordered' > <tbody id='tbody'> </tbody></table>";
     for (let y = 0; y < matriu.length; y++) {
         document.getElementById("tbody").innerHTML +=
-            "<tr id='" + y + "'></tr>";
+            "<tr id=" + y + "></tr>";
         for (let x = 0; x < matriu[y].length; x++) {
             if (matriu[y][x] != 0) {
                 document.getElementById(y).innerHTML +=
-                    "<td style='color:blue'> " + matriu[y][x] + " </td>";
+                    "<td id='"+y+x+"'> " + matriu[y][x] + " </td>";
             } else {
                 matriu[y][x];
-                document.getElementById(y).innerHTML += "<td>_</td>";
+                document.getElementById(y).innerHTML += "<td id='"+y+x+"'></td>";
             }
         }
     }
