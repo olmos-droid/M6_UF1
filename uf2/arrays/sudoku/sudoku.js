@@ -11,42 +11,49 @@ function start() {
     draw();
 }
 function resol() {
-    
     var numEjes = new Set(); // acomulacio de numeros  que hi han en els eixos
 
-    
-        var cont = 0;
-        for (let x = 0; x < matriu.length; x++) {
-            for (let y = 0; y < matriu.length; y++) {
-                console.log("contador: "+ cont++);
-                if (matriu[x][y] == 0) {
-                    for (let z = 0; z < matriu.length; z++) {
-                        if (matriu[x][z] != 0) {
-                            numEjes.add(matriu[x][z]);
-                        }
+    var cont = 0;
+    for (let x = 0; x < matriu.length; x++) {
+        for (let y = 0; y < matriu.length; y++) {
+            console.log("contador: " + cont++);
+            if (matriu[x][y] == 0) {
+                for (let z = 0; z < matriu.length; z++) {
+                    if (matriu[x][z] != 0) {
+                        numEjes.add(matriu[x][z]);
                     }
-                    for (let z = 0; z < matriu.length; z++) {
-                        if (matriu[z][y] != 0) {
-                            numEjes.add(matriu[z][y]);
-                        }
+                }
+                for (let z = 0; z < matriu.length; z++) {
+                    if (matriu[z][y] != 0) {
+                        numEjes.add(matriu[z][y]);
                     }
-                    filtroArray = NUMBERS.filter(function (num) {
-                        return !numEjes.has(num);
-                    });
-                    // console.log("filtro ", filtroArray);
+                }
+                filtroArray = NUMBERS.filter(function (num) {
+                    return !numEjes.has(num);
+                });
+                // console.log("filtro ", filtroArray);
 
-                    if (filtroArray.length == 1) {
-                        matriu[x][y] = filtroArray[0];
-                        draw();
-                        numEjes = new Set(); // acomulacio de numeros  que hi han en els eixos
-                    } else {
-                        numEjes = new Set(); // acomulacio de numeros  que hi han en els eixos
+                let primer_cua = x - (x % 3);
+                let primer_cua2 = y - (y % 3);
+
+                numEjes = new Set();
+
+                for (let i = primer_cua; i < primer_cua + 3; i++) {
+                    for (let j = primer_cua2; j < primer_cua2 + 3; j++) {
+                        numEjes.add;
                     }
-                    
+                }
+
+                if (filtroArray.length == 1) {
+                    matriu[x][y] = filtroArray[0];
+                    draw();
+                    numEjes = new Set(); // acomulacio de numeros  que hi han en els eixos
+                } else {
+                    numEjes = new Set(); // acomulacio de numeros  que hi han en els eixos
                 }
             }
         }
-    
+    }
 }
 
 function draw() {
@@ -57,7 +64,7 @@ function draw() {
         for (let y = 0; y < matriu.length; y++) {
             if (matriu[x][y] != 0) {
                 document.getElementById(x).innerHTML +=
-                    "<td > <button class='btn btn-outline-dark' id='" +
+                    "<td > <button class='btn btn-primary' id='" +
                     x +
                     y +
                     "' >" +
@@ -65,7 +72,7 @@ function draw() {
                     "</button></td>";
             } else {
                 document.getElementById(x).innerHTML +=
-                    "<td > <button class='btn btn-outline-dark'  id='" +
+                    "<td > <button style='display:none' class='btn btn-secondary'  id='" +
                     y +
                     x +
                     "'></button></td>";
