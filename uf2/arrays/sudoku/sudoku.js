@@ -24,60 +24,70 @@ function oneShoot() {
     draw();
     let trobat = false;
     let numEjes = new Set(); // acomulacio de numeros  que hi han en els eixos
-    for (let x = 0; x < matriu.length; x++) {
-        if (!trobat) {
-            for (let y = 0; y < matriu.length; y++) {
-                if (!trobat) {
-                    if (matriu[x][y] == 0) { // miramos si en el sudoku simple podemmos insertar numero
-                        let headX = x - (x % 3);
-                        let headY = y - (y % 3);
+   
+        for (let x = 0; x < matriu.length; x++) {
+            if (!trobat) {
+                for (let y = 0; y < matriu.length; y++) {
+                    if (!trobat) {
+                        if (matriu[x][y] == 0) { // miramos si en el sudoku simple podemmos insertar numero
+                            let headX = x - (x % 3);
+                            let headY = y - (y % 3);
 
-                        for (let i = headX; i < headX + 3; i++) { // miramos cuantas posiblidades hay segun sudoku simple 3x3
-                            for (let j = headY; j < headY + 3; j++) {
-                                numEjes.add(matriu[i][j]);
+                            for (let i = headX; i < headX + 3; i++) { // miramos cuantas posiblidades hay segun sudoku simple 3x3
+                                for (let j = headY; j < headY + 3; j++) {
+                                    numEjes.add(matriu[i][j]);
+                                }
                             }
-                        }
 
-                        for (let z = 0; z < matriu.length; z++) { //miramos la cuantas posiblidades hay segun la columna
-                            //numeros columnes
-                            if (matriu[x][z] != 0) {
-                                numEjes.add(matriu[x][z]);
+                            for (let z = 0; z < matriu.length; z++) { //miramos la cuantas posiblidades hay segun la columna
+                                //numeros columnes
+                                if (matriu[x][z] != 0) {
+                                    numEjes.add(matriu[x][z]);
+                                }
                             }
-                        }
-                        for (let z = 0; z < matriu.length; z++) {
-                            // comproba numero de files
-                            if (matriu[z][y] != 0) {
-                                numEjes.add(matriu[z][y]);
+                            for (let z = 0; z < matriu.length; z++) {
+                                // comproba numero de files
+                                if (matriu[z][y] != 0) {
+                                    numEjes.add(matriu[z][y]);
+                                }
                             }
-                        }
 
-                        filtroArray = NUMBERS.filter(function (num) { // mira mos cuantos numeros faltan
-                            return !numEjes.has(num);
-                        });
+                            filtroArray = NUMBERS.filter(function (num) { // mira mos cuantos numeros faltan
+                                return !numEjes.has(num);
+                            });
 
-                        if (filtroArray.length == 1) { //si solo cabe un numero lo insertamos 
-                            matriu[x][y] = filtroArray[0];
-                            document.getElementById("" + x + "" + y + "").classList.replace("btn-outline-secondary", "btn-outline-primary");// cambiamos de color la casilla/s que hemos cambiado
-                            document.getElementById("" + x + "" + y + "").innerText = matriu[x][y]; // insertamos el numero dentro la casilla
-                            numEjes = new Set(); // reiniciamos el Set para no acomular valores
-                            trobat = true;
-                        } else {
-                            numEjes = new Set();
-                            trobat = false;
+
+                            if (filtroArray.length == 1) { //si solo cabe un numero lo insertamos 
+                                
+                                matriu[x][y] = filtroArray[0];
+                                document.getElementById("" + x + "" + y + "").classList.replace("btn-outline-secondary", "btn-outline-primary");// cambiamos de color la casilla/s que hemos cambiado
+                                document.getElementById("" + x + "" + y + "").innerText = matriu[x][y]; // insertamos el numero dentro la casilla
+                                numEjes = new Set(); // reiniciamos el Set para no acomular valores
+                                trobat = true;
+                            } else {
+                                numEjes = new Set();
+                                trobat = false;
+                            }
                         }
                     }
-                }
 
+                }
             }
         }
-    }
+ 
     return trobat;
 }
 function resol() {
     let end = false;
+    var delayInMilliseconds = 0; //1 second
+
     do {
+
         end = oneShoot();
+
     } while (end);
+
+
 }
 
 // style='margin-right:25px'
@@ -102,11 +112,11 @@ function draw() {
                     y +
                     "'>  </button></td>";
             }
-            if(y==2 || y ==5){
-                document.getElementById("" + x + "" + y + "").style.marginRight="25px";
-            } 
-            if(x==2 || x ==5){
-                document.getElementById("" + x + "" + y + "").style.marginBottom="25px";
+            if (y == 2 || y == 5) {
+                document.getElementById("" + x + "" + y + "").style.marginRight = "25px";
+            }
+            if (x == 2 || x == 5) {
+                document.getElementById("" + x + "" + y + "").style.marginBottom = "25px";
             }
 
 
