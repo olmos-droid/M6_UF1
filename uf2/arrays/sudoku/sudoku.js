@@ -80,7 +80,7 @@ function resol() {
     } while (end);
 }
 
-
+// style='margin-right:25px'
 function draw() {
     document.getElementById("sudoku").innerHTML =
         "<br> <table id='table' class='' > <tbody id='tbody'> </tbody></table>";
@@ -89,7 +89,7 @@ function draw() {
         for (let y = 0; y < matriu.length; y++) {
             if (matriu[x][y] != 0) {
                 document.getElementById(x).innerHTML +=
-                    "<td > <button class='btn btn-outline-secondary' id='" +
+                    "<td > <button class='btn btn-outline-secondary ' id='" +
                     x +
                     y +
                     "' >" +
@@ -100,8 +100,16 @@ function draw() {
                     "<td > <button class='btn btn-outline-secondary'  id='" +
                     x +
                     y +
-                    "'></button></td>";
+                    "'>  </button></td>";
             }
+            if(y==2 || y ==5){
+                document.getElementById("" + x + "" + y + "").style.marginRight="25px";
+            } 
+            if(x==2 || x ==5){
+                document.getElementById("" + x + "" + y + "").style.marginBottom="25px";
+            }
+
+
         }
     }
 }
