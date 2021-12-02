@@ -63,6 +63,7 @@ function oneShoot() {
                             trobat = true;
                         } else {
                             numEjes = new Set();
+                            trobat = false;
                         }
                     }
                 }
@@ -70,15 +71,15 @@ function oneShoot() {
             }
         }
     }
-    console.log(trobat);
     return trobat;
 }
 function resol() {
-
-    for (let i = 0; i < 80; i++) {
-        oneShoot();
-    }
+    let end = false;
+    do {
+        end = oneShoot();
+    } while (end);
 }
+
 
 function draw() {
     document.getElementById("sudoku").innerHTML =
