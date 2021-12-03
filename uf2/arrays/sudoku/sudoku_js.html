@@ -16,44 +16,33 @@
         />
     </head>
 
-    <body>
-        <section>
-            <div class="login-block">
-                <div class="container-fluid">
-                    <div class="auth-box2 card">
-                        <div class="card-block">
-                            <div class="text-center">
-                                <div class="row">
-                                    <textarea  rows="3"  noresize type="text" id="matriu" ></textarea>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <button onclick="start()">Start</button>
-                                        <button onclick="oneShoot()">
-                                            One Shoot
-                                        </button>
-                                        <button onclick="resol()">Show</button>
-                                    </div>
-                                </div>
-                            </div>
+    <body >
+    
+            <div class="card text-center w-50">
+                <div class="card-header">Sudoku</div>
+                <div class="card-body">
+                    <!-- <div class="row"> -->
+                        <textarea rows="3" cols="45" type="text" id="matriu"></textarea>
+                    <!-- </div> -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button class="btn btn-outline-dark" onclick="start()">Start</button>
+                            <button class="btn btn-outline-dark" onclick="oneShoot()">One Shoot</button>
+                            <button class="btn btn-outline-dark" onclick="resol()">Show</button>
                         </div>
                     </div>
                 </div>
+                <div class="card-footer text-muted"></div>
             </div>
 
-            <div class="login-block">
-                <div class="container-fluid">
-                    <div class="auth-box card">
-                        <div class="card-block">
-                            <div class="auth-box card">
-                                <h3 class="text-center heading">Sudoku</h3>
-                            </div>
-                            <div id="sudoku"></div>
-                        </div>
-                    </div>
+            <div class="card text-center w-50">
+                <div class="card-header">Sudoku Game</div>
+                <div class="card-body">
+                    <!-- <h5 class="card-title">Special title treatment</h5> -->
+                    <p class="card-text" id="sudoku"></p>
                 </div>
+                <div class="card-footer text-muted"></div>
             </div>
-        </section>
+    
     </body>
 </html>

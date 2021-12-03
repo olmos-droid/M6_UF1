@@ -1,46 +1,14 @@
-.login-block .auth-box2 {
-    margin: 20px auto 0;
-    max-width: 600px;
+.custom {
+    width: 40px !important;
 }
-
-
-.login-block .auth-box {
-    margin: 20px auto 0;
-    max-width: 450px;
-}
-
 .card {
-    border-radius: 5px;
-    -webkit-box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1),
-        0 11px 6px -7px rgba(43, 43, 43, 0.1);
-    box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1),
-        0 11px 6px -7px rgba(43, 43, 43, 0.1);
-    border: none;
-    margin-bottom: 30px;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: #fff;
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
 }
+body {
+    padding-top: 60px;
+  }
 
-.card .card-block {
-    padding: 1.8rem;
-}
 
-.form-group {
-    margin-bottom: 1.25em;
-}
 
-.form-material .form-control {
-    display: inline-block;
-    height: 43px;
-    width: 100%;
-    border: none;
-    border-radius: 0;
-    font-size: 16px;
-    font-weight: 400;
-    padding: 9px;
-    background-color: transparent;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    border-bottom: 1px solid #ccc;
-}
