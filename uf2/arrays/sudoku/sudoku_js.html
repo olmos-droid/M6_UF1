@@ -17,39 +17,39 @@
     </head>
 
     <body>
-        <section class="login-block">
-            <div class="container-fluid">
-                <div class="auth-box card">
-                    <div class="card-block">
-                        <div class="text-center">
-                            <div class="row">
-                                <input type="text" id="matriu" />
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                <button onclick="start()">Start</button>
-                                <button onclick="oneShoot()">One Shoot</button>
-                                <button onclick="resol()">Show</button>
-                            </div>
+        <section>
+            <div class="login-block">
+                <div class="container-fluid">
+                    <div class="auth-box2 card">
+                        <div class="card-block">
+                            <div class="text-center">
+                                <div class="row">
+                                    <textarea  rows="3"  noresize type="text" id="matriu" ></textarea>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <button onclick="start()">Start</button>
+                                        <button onclick="oneShoot()">
+                                            One Shoot
+                                        </button>
+                                        <button onclick="resol()">Show</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="container-fluid">
-                <div class="auth-box card">
-                    <div class="card-block">
-                        <div>
-                            <div class="text-center">
-                                <div class="auth-box card">
-                                    <div class="card-block"></div>
-                                    <h3 class="text-center heading">Sudoku</h3>
-                                </div>
-                                <div class="col-sm-12 text-center">
-                                    <p id="sudoku"></p>
-                                </div>
+
+            <div class="login-block">
+                <div class="container-fluid">
+                    <div class="auth-box card">
+                        <div class="card-block">
+                            <div class="auth-box card">
+                                <h3 class="text-center heading">Sudoku</h3>
                             </div>
+                            <div id="sudoku"></div>
                         </div>
                     </div>
                 </div>
