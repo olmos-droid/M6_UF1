@@ -14,6 +14,7 @@ const MAT_INICIAL = "[[0,0,0,0,0,0,1,0,0],[0,8,1,0,9,3,0,4,5],[4,0,0,0,5,0,0,3,2
 var matriu = [[]];
 
 function start() {
+    
     document.getElementById("matriu").value = MAT_INICIAL;
     matriu = JSON.parse(MAT_INICIAL);
     console.table(matriu);
@@ -103,14 +104,14 @@ function draw() {
                     x +
                     y +
                     "' >" +
-                    matriu[x][y] +
+                    matriu[x][y] +""+
                     "</button></td>";
             } else {
                 document.getElementById(x).innerHTML +=
                     "<td > <button class='btn btn-outline-secondary'  id='" +
                     x +
                     y +
-                    "'>  </button></td>";
+                    "'> &nbsp;&nbsp;&nbsp; </button></td>";
             }
             if (y == 2 || y == 5) {
                 document.getElementById("" + x + "" + y + "").style.marginRight = "25px";
