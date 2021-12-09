@@ -39,6 +39,9 @@ class Voluntari extends Persona{
     }
 }
 
+
+// CONTROL DE CURSA
+
 class Cursa{
     constructor(horaInici){
         this._horaInici=horaInici;
@@ -62,4 +65,9 @@ class Categoria{
     }
     generarAssegurances(){}
 
+}
+
+//control de pas
+class ControlParcial{
+    
 }
