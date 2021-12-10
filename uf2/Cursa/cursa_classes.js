@@ -101,6 +101,3 @@ console.log(cursa);
 // cursa.inscriureCorredors([cor1._dorsal, cor2._dorsal, cor3._dorsal]);
 cursa.inscriureCorredors([{"dorsal" : cor1._dorsal,"time": cursa._horaInici},{"dorsal" : cor2._dorsal,"time": cursa._horaInici},{"dorsal" : cor3._dorsal,"time": cursa._horaInici}]);
 
-console.log(cursa);
-console.log(cursa._categoria._inscrits);
-
