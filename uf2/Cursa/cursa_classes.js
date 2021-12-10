@@ -21,17 +21,17 @@ class Corredor extends Persona {
 		console.log("mi dorsal es ${this._dorsal}");
 	}
 
-	iniciarCursa() {}
-	avançarDistancia() {}
-	passarControl() {}
+	iniciarCursa() { }
+	avançarDistancia() { }
+	passarControl() { }
 }
 
 class Jutge extends Persona {
 	constructor() {
 		super(_nom, _cognom, _data_naixement, _dni, _tel, _sexe);
 	}
-	sancionarCorredor() {}
-	registrarRetirada() {}
+	sancionarCorredor() { }
+	registrarRetirada() { }
 }
 
 class Voluntari extends Persona {
@@ -47,8 +47,8 @@ class Cursa {
 		this._horaInici = horaInici;
 	}
 
-	inscriureCorredors() {}
-	iniciarCursa() {}
+	inscriureCorredors() { }
+	iniciarCursa() { }
 }
 class Categoria {
 	constructor(nom, sexe, edat_min, edat_max, inscrits) {
@@ -58,12 +58,12 @@ class Categoria {
 		this._edat_max = edat_max;
 		this._inscrits = inscrits;
 	}
-	generarClassificació() {}
-	generarAssegurances() {}
+	generarClassificació() { }
+	generarAssegurances() { }
 }
 
 //control de pas
-class ControlParcial {}
+class ControlParcial { }
 
 let corredor1 = new Corredor("1", true, 0.9);
 let persona1 = new Corredor(
