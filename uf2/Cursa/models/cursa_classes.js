@@ -12,7 +12,7 @@ class Persona {
 }
 
 class Corredor extends Persona {
-	constructor(_nom, _cognom, _data_naixement, _dni, _tel, _sexe, dorsal, federat, rendiment) {
+	constructor(_nom, _cognom, _data_naixement, _dni, _tel, _sexe, dorsal, federat,rendiment) {
 		super(_nom, _cognom, _data_naixement, _dni, _tel, _sexe);
 		this._dorsal = dorsal;
 		this._federat = federat;
@@ -77,6 +77,8 @@ function getRandomRendiment() {
 	return Math.random() * (1.1 - 0.9);
 }
 
+// nconstroir direcdtament el array en format JSON
+//array index = dorsal 
 let cor1 = new Corredor("Josep", "Jorpez", new Date("1980/08/13"), "47714462L", "664134214", "M", 1, true);
 let cor2 = new Corredor("Alfonso", "Alopez", new Date("1990/08/13"), "47714462L", "664134214", "M", 2, true);
 let cor3 = new Corredor("Miriam", "Morpez", new Date("2000/08/13"), "47714462L", "664134214", "F", 3, true);
