@@ -2,21 +2,20 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cursa</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
     <link rel="stylesheet" href="./css/cursa.css" />
-    <script src="./models/cursa_classes.js">    </script>
-
+    <script src="cursa_classes.js"></script>
 </head>
-
-<body>
-    <br>
-
+<body onload="showDate()">
     <div class="container text-center">
         <h2>Cursa </h2>
         <br>
@@ -39,10 +38,13 @@
                 <div class="card border-secondary mb-5" style="max-width: 100%; margin: 1rem;">
                     <div class="card-header">CLASIFICACIO</div>
                     <div class="card-body text-secondary">
-                        <h5 class="card-title">Secondary card title</h5>
+                        <!-- <h5 class="card-title">Secondary card title</h5> -->
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the
                             card's content.</p>
+                        <span id="datetime"></span>
+                        <button onclick="showDate()">show date</button>
+
                     </div>
                 </div>
             </div>
@@ -50,7 +52,7 @@
                 <div class="card border-secondary mb-5" style="max-width: 100%; margin: 1rem;">
                     <div class="card-header">CONTROL DE PAS</div>
                     <div class="card-body text-secondary">
-                        <h5 class="card-title">Secondary card title</h5>
+                        <!-- <h5 class="card-title">Secondary card title</h5> -->
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the
                             card's content.</p>
@@ -61,7 +63,7 @@
                 <div class="card border-secondary mb-5" style="max-width: 100%; margin: 1rem;">
                     <div class="card-header">PENDENTS D'ARRIBAR</div>
                     <div class="card-body text-secondary">
-                        <h5 class="card-title">Secondary card title</h5>
+                        <!-- <h5 class="card-title">Secondary card title</h5> -->
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the
                             card's content.</p>

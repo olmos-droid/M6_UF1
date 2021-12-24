@@ -1,9 +1,7 @@
-body {
+.body {
     background-color: #f2f7fb
 }
-html, body {
-    
-}
+
 
 .login-block {
     margin: 30px auto;
