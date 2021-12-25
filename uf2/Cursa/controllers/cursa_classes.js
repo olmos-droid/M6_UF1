@@ -7,7 +7,7 @@ const literals = [
     tel: "664134214",
     sexe: "M",
     federat: "false",
-    tipus: "runner",
+    tipus: "r",
   },
   {
     nom: "jut2_nom2",
@@ -16,7 +16,7 @@ const literals = [
     dni: "2222333L",
     tel: "622222222",
     sexe: "F",
-    tipus: "jutge",
+    tipus: "j",
   },
   {
     nom: "vol4_nom4",
@@ -25,18 +25,18 @@ const literals = [
     dni: "423456789L",
     tel: "645878799",
     sexe: "M",
-    tipus: "runner",
+    tipus: "v",
   },
-  // {
-  //   nom: "josep",
-  //   cognom: "Paz",
-  //   data_naixement: "18/12/1980",
-  //   document: "456789123P",
-  //   tel: "606547896",
-  //   sexe: "NB",
-  //   federat: "true",
-  //   tipus: "runner",
-  // },
+  {
+    nom: "josep",
+    cognom: "Paz",
+    data_naixement: "18/12/1980",
+    document: "456789123P",
+    tel: "606547896",
+    sexe: "NB",
+    federat: "true",
+    tipus: "r",
+  },
   {
     nom: "voluntari 1",
     cognom: "cogvol1",
@@ -44,7 +44,7 @@ const literals = [
     dni: "789654486f",
     tel: "475895544",
     sexe: "M",
-    tipus: "runner",
+    tipus: "v",
   },
 
   {
@@ -55,7 +55,7 @@ const literals = [
     tel: "664134214",
     sexe: "F",
     federat: "false",
-    tipus: "runner",
+    tipus: "r",
   },
   {
     nom: "jut1_nom1",
@@ -64,7 +64,7 @@ const literals = [
     dni: "148932123U",
     tel: "616666666",
     sexe: "M",
-    tipus: "jutge",
+    tipus: "j",
   },
   {
     nom: "jut1_nom1",
@@ -73,7 +73,7 @@ const literals = [
     dni: "148932123U",
     tel: "616666666",
     sexe: "M",
-    tipus: "voluntari",
+    tipus: "j",
   },
 
   {
@@ -83,7 +83,7 @@ const literals = [
     dni: "148932123U",
     tel: "616666666",
     sexe: "M",
-    tipus: "jutge",
+    tipus: "j",
   },
 
   {
@@ -93,7 +93,7 @@ const literals = [
     dni: "148932123U",
     tel: "789963255",
     sexe: "NB",
-    tipus: "jutge",
+    tipus: "j",
   },
 
   {
@@ -104,7 +104,7 @@ const literals = [
     tel: "664134214",
     sexe: "F",
     federat: true,
-    tipus: "runner",
+    tipus: "r",
   },
   {
     nom: "Zazu",
@@ -114,18 +114,18 @@ const literals = [
     tel: "664134214",
     sexe: "NB",
     federat: true,
-    tipus: "runner",
+    tipus: "r",
   },
-  // {
-  //   nom: "Ivan",
-  //   cognom: "Iopez",
-  //   data_naixement: "2000/08/13",
-  //   document: "47714462L",
-  //   tel: "664134214",
-  //   sexe: "M",
-  //   federat: true,
-  //   tipus: "runner",
-  // },
+  {
+    nom: "Ivan",
+    cognom: "Iopez",
+    data_naixement: "2000/08/13",
+    document: "47714462L",
+    tel: "664134214",
+    sexe: "M",
+    federat: true,
+    tipus: "r",
+  },
   {
     nom: "vol3_nom3",
     cognom: "cog_vol3",
@@ -133,7 +133,7 @@ const literals = [
     dni: "323456789L",
     tel: "63578799",
     sexe: "NB",
-    tipus: "voluntari",
+    tipus: "v",
   },
   {
     nom: "vol2_nom2",
@@ -142,7 +142,7 @@ const literals = [
     dni: "223346789L",
     tel: "625878799",
     sexe: "F",
-    tipus: "voluntari",
+    tipus: "v",
   },
 ];
 class Persona {
@@ -161,14 +161,14 @@ class Corredor extends Persona {
     nom,
     cognom,
     data_naixement,
-    dni,
+    document,
     tel,
     sexe,
     federat,
     dorsal,
     rendiment
   ) {
-    super(nom, cognom, data_naixement, dni, tel, sexe);
+    super(nom, cognom, data_naixement, document, tel, sexe);
     this._federat = federat;
     this._dorsal = dorsal;
     this._rendiment = rendiment;
@@ -222,28 +222,36 @@ class Cursa {
     let dateDate = new Date();
 
     for (let literal of literals) {
-      if (literal.tipus == "runner") {
+      if (literal.tipus == "r") {
         cursa._categoria._inscrits.push(
           new Corredor(
-            literal._nom,
-            literal._cognom,
-            literal._data_naixement,
-            literal._dni,
-            literal._tel,
-            literal._sexe,
+            literal.nom,
+            literal.cognom,
+            literal.data_naixement,
+            literal.document,
+            literal.tel,
+            literal.sexe,
             true,
             dorsal,
             this.getRandomRendiment
           )
         );
+        console.log("corredor : " + literal.nom + " afegit");
+      
+        dorsal++;
       }
     }
   }
-  altaCursa(){
-    
+  openWindowbyDorsal(dorsal) {
+    var newWin = window.open("");
+    newWin.self.name = "dorsal_" + dorsal;
   }
-
-  iniciarCursa() {}
+  iniciarCursa() {
+    for (let x = 0; x < this._categoria._inscrits.length; x++) {
+      const element = this._categoria._inscrits[x];
+      var newWindow = this.openWindowbyDorsal(element._dorsal);
+    }
+  }
 }
 
 class Categoria {
@@ -264,12 +272,16 @@ class Categoria {
 
 //control de pas
 class ControlParcial {}
+
 function showDate() {
   var x = new Date();
   document.getElementById("datetime").innerHTML = x;
 }
-function startGame() {
-  let cursa = new Cursa(new Date(), new Categoria("Categoria_1", "all", 10, 100)); //creem una cursa TODO literals
+
+
+  let cursa;
+  cursa = new Cursa(new Date(), new Categoria("Categoria_2", "all", 10, 100)); //creem una cursa TODO literals
+  console.log(literals);
   cursa.inscriureCorredors(literals);
-  
-}
+  cursa.iniciarCursa()
+
