@@ -193,7 +193,17 @@ class Voluntari extends Persona {
   }
 }
 
-// CONTROL DE CURSA
+//HORA
+function updateDateTime() {
+  let time_mms = 1000;
+  myTime = setTimeout("showDate()", time_mms);
+}
+function showDate() {
+  var x = new Date();
+  document.getElementById("datetime").innerHTML = x;
+  updateDateTime();
+}
+//CURSA
 
 class Cursa {
   constructor(horaInici, categoria) {
@@ -209,8 +219,7 @@ class Cursa {
   }
   inscriureCorredors(literals) {
     let dorsal = 0;
-    let dateDate= new Date();
-
+    let dateDate = new Date();
 
     for (let literal of literals) {
       if (literal.tipus == "runner") {
@@ -227,18 +236,11 @@ class Cursa {
             this.getRandomRendiment
           )
         );
-        var newWindow = this.openWindowbyDorsal(dorsal);
-        dorsal++;
       }
-      // window.close();
     }
   }
-  openWindowbyDorsal(dorsal) {
-    var newWin = window.open(
-      "/home/josep/Documentos/M06/M6_UF1/uf2/Cursa/views/runnerView.html",
-
-    );
-    newWin.self.name = "dorsal_" + dorsal;
+  altaCursa(){
+    
   }
 
   iniciarCursa() {}
@@ -266,5 +268,8 @@ function showDate() {
   var x = new Date();
   document.getElementById("datetime").innerHTML = x;
 }
-// let cursa = new Cursa(new Date(), new Categoria("Categoria_1", "all", 10, 100));
-// cursa.inscriureCorredors(literals);
+function startGame() {
+  let cursa = new Cursa(new Date(), new Categoria("Categoria_1", "all", 10, 100)); //creem una cursa TODO literals
+  cursa.inscriureCorredors(literals);
+  
+}

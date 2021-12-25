@@ -13,16 +13,19 @@
 
 
     <link rel="stylesheet" href="./css/cursa.css" />
-    <script src="cursa_classes.js"></script>
+    <script src="../controllers/cursa_classes.js"></script>
 </head>
-<body onload="showDate()">
+<body>
     <div class="container text-center">
         <h2>Cursa </h2>
         <br>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs justify-content-center" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#home">CLASIFICACIO</a>
+                <a class="nav-link active" data-toggle="tab" href="#home">CURSA</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu0">CONTROL DE PAS</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#menu1">CONTROL DE PAS</a>
@@ -36,15 +39,26 @@
         <div class="tab-content">
             <div id="home" class="container tab-pane active"><br>
                 <div class="card border-secondary mb-5" style="max-width: 100%; margin: 1rem;">
+                    <div class="card-header">CURSA</div>
+                    <div class="card-body text-secondary">
+                        <!-- <h5 class="card-title">Secondary card title</h5> -->
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the
+                            card's content.</p>
+                    <span id="datetime"></span>
+                    <button onclick="showDate()">show date</button>
+
+                    </div>
+                </div>
+            </div>
+            <div id="menu0" class="container tab-pane fade"><br>
+                <div class="card border-secondary mb-5" style="max-width: 100%; margin: 1rem;">
                     <div class="card-header">CLASIFICACIO</div>
                     <div class="card-body text-secondary">
                         <!-- <h5 class="card-title">Secondary card title</h5> -->
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the
                             card's content.</p>
-                        <span id="datetime"></span>
-                        <button onclick="showDate()">show date</button>
-
                     </div>
                 </div>
             </div>
@@ -64,9 +78,19 @@
                     <div class="card-header">PENDENTS D'ARRIBAR</div>
                     <div class="card-body text-secondary">
                         <!-- <h5 class="card-title">Secondary card title</h5> -->
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
+                        <p class="card-text">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                        </ul>
+                        </p>
                     </div>
                 </div>
             </div>
