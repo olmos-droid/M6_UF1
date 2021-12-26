@@ -31,7 +31,7 @@ const literals = [
     nom: "josep",
     cognom: "Paz",
     data_naixement: "18/12/1980",
-    document: "456789123P",
+    document: "47885265",
     tel: "606547896",
     sexe: "NB",
     federat: "true",
@@ -51,7 +51,7 @@ const literals = [
     nom: "Miriam",
     cognom: "Morpez",
     data_naixement: "18/12/2000",
-    document: "47714462L",
+    document: "85245695L",
     tel: "664134214",
     sexe: "F",
     federat: "false",
@@ -61,7 +61,7 @@ const literals = [
     nom: "jut1_nom1",
     cognom: "cog_jut1",
     data_naixement: "30/06/2002",
-    dni: "148932123U",
+    dni: "45678777U",
     tel: "616666666",
     sexe: "M",
     tipus: "j",
@@ -110,7 +110,7 @@ const literals = [
     nom: "Zazu",
     cognom: "Zopez",
     data_naixement: "1990/08/13",
-    document: "47714462L",
+    document: "4685236E",
     tel: "664134214",
     sexe: "NB",
     federat: true,
@@ -120,7 +120,7 @@ const literals = [
     nom: "Ivan",
     cognom: "Iopez",
     data_naixement: "2000/08/13",
-    document: "47714462L",
+    document: "98741528G",
     tel: "664134214",
     sexe: "M",
     federat: true,
@@ -130,7 +130,7 @@ const literals = [
     nom: "vol3_nom3",
     cognom: "cog_vol3",
     data_naixement: "01/01/2018",
-    dni: "323456789L",
+    dni: "77888999R",
     tel: "63578799",
     sexe: "NB",
     tipus: "v",
@@ -139,7 +139,7 @@ const literals = [
     nom: "vol2_nom2",
     cognom: "cog_vol2",
     data_naixement: "14/12/1999",
-    dni: "223346789L",
+    dni: "74215683G",
     tel: "625878799",
     sexe: "F",
     tipus: "v",
@@ -193,16 +193,7 @@ class Voluntari extends Persona {
   }
 }
 
-//HORA
-function updateDateTime() {
-  let time_mms = 1000;
-  myTime = setTimeout("showDate()", time_mms);
-}
-function showDate() {
-  var x = new Date();
-  document.getElementById("datetime").innerHTML = x;
-  updateDateTime();
-}
+
 //CURSA
 
 class Cursa {
@@ -237,20 +228,20 @@ class Cursa {
           )
         );
         console.log("corredor : " + literal.nom + " afegit");
-      
+
         dorsal++;
       }
     }
   }
-  openWindowbyDorsal(dorsal) {
-    var newWin = window.open("");
-    newWin.self.name = "dorsal_" + dorsal;
+  openWindowbyDorsal(element) {
+    var newWin = window.open("runnerView.html", element._dorsal);
   }
   iniciarCursa() {
     for (let x = 0; x < this._categoria._inscrits.length; x++) {
       const element = this._categoria._inscrits[x];
-      var newWindow = this.openWindowbyDorsal(element._dorsal);
+      var newWindow = this.openWindowbyDorsal(element);
     }
+
   }
 }
 
@@ -277,11 +268,10 @@ function showDate() {
   var x = new Date();
   document.getElementById("datetime").innerHTML = x;
 }
-
-
-  let cursa;
+function init(params) {
   cursa = new Cursa(new Date(), new Categoria("Categoria_2", "all", 10, 100)); //creem una cursa TODO literals
-  console.log(literals);
-  cursa.inscriureCorredors(literals);
-  cursa.iniciarCursa()
+  console.log("cursa init");
+}
+
+
 
