@@ -224,7 +224,7 @@ class Cursa {
             literal.sexe,
             true,
             dorsal,
-            this.getRandomRendiment
+            this.getRandomRendiment(),
           )
         );
         console.log("corredor : " + literal.nom + " afegit");
@@ -246,11 +246,12 @@ class Cursa {
 }
 
 class Categoria {
-  constructor(nom, sexe, edat_min, edat_max, inscrits) {
+  constructor(nom, sexe, edat_min, edat_max, inscrits,metres) {
     this._nom = nom;
     this._sexe = sexe;
     this._edat_min = edat_min;
     this._edat_max = edat_max;
+    this._metres=metres;
     this._inscrits = new Array(inscrits);
   }
   generarClassificació() {
@@ -269,7 +270,7 @@ function showDate() {
   document.getElementById("datetime").innerHTML = x;
 }
 function init(params) {
-  cursa = new Cursa(new Date(), new Categoria("Categoria_2", "all", 10, 100)); //creem una cursa TODO literals
+  cursa = new Cursa(new Date(), new Categoria("Categoria_2", "all", 10, 100,50)); //creem una cursa TODO literals
   console.log("cursa init");
 }
 

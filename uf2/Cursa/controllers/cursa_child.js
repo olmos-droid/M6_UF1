@@ -5,7 +5,14 @@ function updateDateTime() {
 function showDate() {
   let x = new Date();
 
-  document.getElementById("datetime").innerHTML =
+  // document.getElementById("datetime").innerHTML =
+  //   "inici cursa: " +
+  //   x.getHours() +
+  //   ":" +
+  //   x.getMinutes() +
+  //   ":" +
+  //   x.getSeconds();
+  document.formChild.c_datetime.value =
     "inici cursa: " +
     x.getHours() +
     ":" +
@@ -20,5 +27,4 @@ document.formChild.c_name.value =
   opener.cursa._categoria._inscrits[self.name]._cognom;
 document.formChild.c_document.value =
   opener.cursa._categoria._inscrits[self.name]._dni;
-
-  let 
+document.formChild.c_rendiment.value=opener.cursa._categoria._inscrits[self.name]._rendiment;
