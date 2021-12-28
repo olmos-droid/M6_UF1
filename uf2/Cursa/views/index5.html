@@ -10,11 +10,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 
 
     <link rel="stylesheet" href="./css/cursa.css" />
-    
+
 </head>
+
 <body>
     <div class="container text-center">
         <h2>Cursa </h2>
@@ -25,8 +27,9 @@
                 <a class="nav-link active" data-toggle="tab" href="#home">CURSA</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#menu0">CONTROL DE PAS</a>
+                <a class="nav-link " data-toggle="tab" href="#menu0">CLASIFICACIO</a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#menu1">CONTROL DE PAS</a>
             </li>
@@ -41,12 +44,38 @@
                 <div class="card border-secondary mb-5" style="max-width: 100%; margin: 1rem;">
                     <div class="card-header">CURSA</div>
                     <div class="card-body text-secondary">
-                        <!-- <h5 class="card-title">Secondary card title</h5> -->
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                    <span id="datetime"></span>
-                    <button onclick="showDate()">show date</button>
+
+                        <div class="col-md-12 text-center">
+                            <button type="button"
+                                class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20"
+                                onclick="init()"> <i class="fa fa-lock"></i>
+                                Crear Cursa
+                            </button>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <button type="button"
+                                class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20 "
+                                onclick="cursa.inscriureCorredors(literals);"> <i class="fa fa-lock"></i>
+                                Inscriure corredors
+                            </button>
+                            <div class="form-group form-primary">
+                                <input type="text" class="form-control" name="literal" value=""
+                                    placeholder="Introdueix literal/s" id="literal" />
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <button type="button"
+                                class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20"
+                                onclick="cursa.iniciarCursa()"> <i class="fa fa-lock"></i>
+                                Iniciar Cursa
+                            </button>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <input type="text" name="p_datetimeinit" id="p_datetimeinit">
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <input type="text" name="p_datetime" id="p_datetime">
+                        </div>
 
                     </div>
                 </div>
@@ -98,5 +127,6 @@
     </div>
 
 </body>
-<script src="../controllers/cursa_classes.js"></script>
+    <script src="../controllers/cursa_classes.js"></script>
+
 </html>

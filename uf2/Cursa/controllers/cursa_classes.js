@@ -269,9 +269,8 @@ class Cursa {
     var newWin = window.open("runnerView.html", element._dorsal);
   }
   iniciarCursa() {
-    
-      cursa._horaInici = Date.now();
-    
+    cursa._horaInici = Date.now();
+
     showDate();
     for (let x = 0; x < this._categoria._inscrits.length; x++) {
       const element = this._categoria._inscrits[x];
@@ -306,16 +305,13 @@ function updateDateTime() {
 }
 function showDate() {
   let x = new Date();
-  
+
   document.formParent.p_datetime.value =
     x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
   updateDateTime();
 }
 
 function init(params) {
-  cursa = new Cursa(
-    null,
-    new Categoria("Categoria_2", "all", 10, 100, 5000)
-  ); //creem una cursa TODO literals
+  cursa = new Cursa(null, new Categoria("Categoria_2", "all", 10, 100, 5000)); //creem una cursa TODO literals
   console.log("cursa inicialitzada");
 }
