@@ -10,8 +10,8 @@ const literals = [
     tipus: "r",
   },
   {
-    nom: "jut2_nom2",
-    cognom: "cog_jut2",
+    nom: "Jut2_nom2",
+    cognom: "Cog_jut2",
     data_naixement: "30/06/2002",
     dni: "2222333L",
     tel: "622222222",
@@ -19,8 +19,8 @@ const literals = [
     tipus: "j",
   },
   {
-    nom: "vol4_nom4",
-    cognom: "cog_vol4",
+    nom: "Vol4_nom4",
+    cognom: "Cog_vol4",
     data_naixement: "15/04/89",
     dni: "423456789L",
     tel: "645878799",
@@ -28,7 +28,7 @@ const literals = [
     tipus: "v",
   },
   {
-    nom: "josep",
+    nom: "Josep",
     cognom: "Paz",
     data_naixement: "18/12/1980",
     document: "47885265",
@@ -38,8 +38,8 @@ const literals = [
     tipus: "r",
   },
   {
-    nom: "voluntari 1",
-    cognom: "cogvol1",
+    nom: "Voluntari 1",
+    cognom: "Cog_vol1",
     data_naixement: "29/10,2005",
     dni: "789654486f",
     tel: "475895544",
@@ -58,8 +58,8 @@ const literals = [
     tipus: "r",
   },
   {
-    nom: "jut1_nom1",
-    cognom: "cog_jut1",
+    nom: "Jut1_nom1",
+    cognom: "Cog_jut1",
     data_naixement: "30/06/2002",
     dni: "45678777U",
     tel: "616666666",
@@ -67,30 +67,30 @@ const literals = [
     tipus: "j",
   },
   {
-    nom: "jut1_nom1",
-    cognom: "cog_jut1",
+    nom: "Jut1_nom1",
+    cognom: "Cog_jut1",
     data_naixement: "30/06/2002",
-    dni: "148932123U",
+    dni: "14893212U",
     tel: "616666666",
     sexe: "M",
     tipus: "j",
   },
 
   {
-    nom: "jut1_nom1",
-    cognom: "cog_jut1",
+    nom: "Jut1_nom1",
+    cognom: "Cog_jut1",
     data_naixement: "30/06/2002",
-    dni: "148932123U",
+    dni: "14932123U",
     tel: "616666666",
     sexe: "M",
     tipus: "j",
   },
 
   {
-    nom: "jut3_nom3",
-    cognom: "cog_jut3",
+    nom: "Jut3_nom3",
+    cognom: "Cog_jut3",
     data_naixement: "30/06/2002",
-    dni: "148932123U",
+    dni: "14893123U",
     tel: "789963255",
     sexe: "NB",
     tipus: "j",
@@ -127,17 +127,17 @@ const literals = [
     tipus: "r",
   },
   {
-    nom: "vol3_nom3",
-    cognom: "cog_vol3",
+    nom: "Vol3_nom3",
+    cognom: "Cog_vol3",
     data_naixement: "01/01/2018",
-    dni: "77888999R",
+    dni: "78555969R",
     tel: "63578799",
     sexe: "NB",
     tipus: "v",
   },
   {
-    nom: "vol2_nom2",
-    cognom: "cog_vol2",
+    nom: "Vol2_nom2",
+    cognom: "Cog_vol2",
     data_naixement: "14/12/1999",
     dni: "74215683G",
     tel: "625878799",
@@ -193,7 +193,6 @@ class Voluntari extends Persona {
   }
 }
 
-
 //CURSA
 
 class Cursa {
@@ -213,6 +212,37 @@ class Cursa {
     let dateDate = new Date();
 
     for (let literal of literals) {
+      if (literal.tipus == "v") {
+        cursa._categoria._voluntaris.push(
+          new Voluntari(
+            literal.nom,
+            literal.cognom,
+            literal.data_naixement,
+            literal.document,
+            literal.tel,
+            literal.sexe
+          )
+        );
+        console.log(
+          "voluntari : " + literal.nom + " " + literal.cognom + " afegit"
+        );
+      }
+      if (literal.tipus == "j") {
+        cursa._categoria._jutges.push(
+          new Jutge(
+            literal.nom,
+            literal.cognom,
+            literal.data_naixement,
+            literal.document,
+            literal.tel,
+            literal.sexe
+          )
+        );
+        console.log(
+          "jutge : " + literal.nom + " " + literal.cognom + " afegit"
+        );
+      }
+
       if (literal.tipus == "r") {
         cursa._categoria._inscrits.push(
           new Corredor(
@@ -224,10 +254,12 @@ class Cursa {
             literal.sexe,
             true,
             dorsal,
-            this.getRandomRendiment(),
+            this.getRandomRendiment()
           )
         );
-        console.log("corredor : " + literal.nom + " afegit");
+        console.log(
+          "corredor : " + literal.nom + " " + literal.cognom + " afegit"
+        );
 
         dorsal++;
       }
@@ -237,21 +269,21 @@ class Cursa {
     var newWin = window.open("runnerView.html", element._dorsal);
   }
   iniciarCursa() {
+    showDate();
     for (let x = 0; x < this._categoria._inscrits.length; x++) {
       const element = this._categoria._inscrits[x];
       var newWindow = this.openWindowbyDorsal(element);
     }
-
   }
 }
 
 class Categoria {
-  constructor(nom, sexe, edat_min, edat_max, inscrits,metres) {
+  constructor(nom, sexe, edat_min, edat_max, metres, inscrits) {
     this._nom = nom;
     this._sexe = sexe;
     this._edat_min = edat_min;
     this._edat_max = edat_max;
-    this._metres=metres;
+    this._metres = metres;
     this._inscrits = new Array(inscrits);
   }
   generarClassificació() {
@@ -265,14 +297,26 @@ class Categoria {
 //control de pas
 class ControlParcial {}
 
+function updateDateTime() {
+  let time_mms = 1000;
+  myTime = setTimeout("showDate()", time_mms);
+}
 function showDate() {
-  var x = new Date();
-  document.getElementById("datetime").innerHTML = x;
+  let x = new Date();
+  document.formParent.p_datetime.value =
+    "hora actual: " +
+    x.getHours() +
+    ":" +
+    x.getMinutes() +
+    ":" +
+    x.getSeconds();
+  updateDateTime();
 }
+
 function init(params) {
-  cursa = new Cursa(new Date(), new Categoria("Categoria_2", "all", 10, 100,50)); //creem una cursa TODO literals
-  console.log("cursa init");
+  cursa = new Cursa(
+    new Date(),
+    new Categoria("Categoria_2", "all", 10, 100, 5000)
+  ); //creem una cursa TODO literals
+  console.log("cursa inicialitzada");
 }
-
-
-

@@ -9,15 +9,17 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/cursa.css" />
     <script src="../controllers/cursa_classes.js"></script>
+
+
     <title>Cursa</title>
 </head>
 
-<body>
+<body">
     <section class="login-block">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12">
-                    <form class="md-float-material form-material" action="#" method="POST">
+                    <form class="md-float-material form-material" name="formParent" action="#" method="POST">
                         <div class="auth-box card">
                             <div class="card-block">
                                 <div class="row">
@@ -52,6 +54,12 @@
                                         Iniciar Cursa
                                     </button>
                                 </div>
+                                <div class="col-md-12 text-center">
+                                    <input type="text" name="p_datetimeinit" id="p_datetimeinit">
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <input type="text" name="p_datetime" id="p_datetime">
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -61,6 +69,6 @@
     </section>
     <div id="footer"></div>
 
-</body>
+    </body>
 
 </html>
