@@ -269,6 +269,9 @@ class Cursa {
     var newWin = window.open("runnerView.html", element._dorsal);
   }
   iniciarCursa() {
+    
+      cursa._horaInici = Date.now();
+    
     showDate();
     for (let x = 0; x < this._categoria._inscrits.length; x++) {
       const element = this._categoria._inscrits[x];
@@ -298,24 +301,20 @@ class Categoria {
 class ControlParcial {}
 
 function updateDateTime() {
-  let time_mms = 1000;
+  let time_mms = 500;
   myTime = setTimeout("showDate()", time_mms);
 }
 function showDate() {
   let x = new Date();
+  
   document.formParent.p_datetime.value =
-    "hora actual: " +
-    x.getHours() +
-    ":" +
-    x.getMinutes() +
-    ":" +
-    x.getSeconds();
+    x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
   updateDateTime();
 }
 
 function init(params) {
   cursa = new Cursa(
-    new Date(),
+    null,
     new Categoria("Categoria_2", "all", 10, 100, 5000)
   ); //creem una cursa TODO literals
   console.log("cursa inicialitzada");
