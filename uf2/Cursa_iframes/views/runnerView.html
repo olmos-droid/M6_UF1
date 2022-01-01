@@ -20,26 +20,27 @@
                 <div class="col-sm-12">
                     <div class="auth-box card">
                         <div class="card-block">
-                            <div class="card-body text-center  ">
+                            <div class="card-body text-center">
                                 <form action="" method="post" name="formChild">
                                     <h4 class="card-nom text-center">
-                                        <div class="form-group form-primary ">
-                                            <input type="text" name="c_name" id="c_name" class="form-control" readonly>
+                                        <div class="form-group form-primary">
+                                            <input type="text" name="c_name" id="c_name" class="form-control">
                                         </div>
                                     </h4>
                                     <h6 class="card-cognom mb-2 text-muted">
                                         <div class="form-group form-primary">
-                                            <input size="25" type="text" name="c_document" id="c_document" class="form-control" readonly>
+                                            <input type="text" name="c_document" id="c_document" class="form-control">
                                         </div>
                                     </h6>
-                                    <form action="/action_page.php">
-                                        <label for="textareaSancions">Comentaris</label>
-                                        <textarea id="textareaSancions" name="textareaSancions" rows="4" cols="50">
-aqui va la informacio del jutges
-                                        </textarea>
-                                        <br><br>
-                                        <input type="submit" value="Submit">
-                                    </form>
+                                    <p class="card-text"> Aqui podien anar algunes observacions dels jutges o
+                                        voluntaris.
+                                    </p>
+                                    <div class="col-md-12 text-center">
+                                        <button type="button"
+                                            class="btn btn-warning btn-md waves-effect text-center m-b-20"><i
+                                                class="fa fa-lock"></i>
+                                            Sancionar
+                                        </button>
 
                                         <button type="button"
                                             class="btn btn-danger btn-md btn-block waves-effect text-center m-b-20"><i
@@ -47,22 +48,21 @@ aqui va la informacio del jutges
                                             Registrar retirada
                                         </button>
                                     </div>
-                                    <div class="text-center ">
-                                        <input type="text" name="c_horaInici" class="form-control" readonly>
-                                        <input type="text" name="c_horaFinal" class="form-control" readonly>
-                                        <input type="text" name="c_rendiment" class="form-control" readonly>
-                                        <input type="text" name="c_metres" class="form-control" readonly>
+                                    <div class="col-md-12 text-center">
+                                        <input type="text" name="c_datetime" >
+                                        <input type="text" name="c_rendiment">
+                                        <input type="text" name="c_metres" >
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
 
-</div>
-</div>
-</div>
-</section>
-<div id="footer"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="footer"></div>
 </body>
 <script src="../controllers/cursa_child.js"></script>
 
