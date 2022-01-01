@@ -60,28 +60,18 @@ const literals = [
   {
     nom: "Jut1_nom1",
     cognom: "Cog_jut1",
-    data_naixement: "30/06/2002",
-    dni: "45678777U",
-    tel: "616666666",
+    data_naixement: "30/06/1990",
+    dni: "99333111J",
+    tel: "614466666",
     sexe: "M",
     tipus: "j",
   },
   {
-    nom: "Jut1_nom1",
-    cognom: "Cog_jut1",
-    data_naixement: "30/06/2002",
-    dni: "14893212U",
-    tel: "616666666",
-    sexe: "M",
-    tipus: "j",
-  },
-
-  {
-    nom: "Jut1_nom1",
-    cognom: "Cog_jut1",
-    data_naixement: "30/06/2002",
-    dni: "14932123U",
-    tel: "616666666",
+    nom: "Jut2_nom2",
+    cognom: "Cog_jut2",
+    data_naixement: "30/06/1985",
+    dni: "85225963H",
+    tel: "616666236",
     sexe: "M",
     tipus: "j",
   },
@@ -89,8 +79,18 @@ const literals = [
   {
     nom: "Jut3_nom3",
     cognom: "Cog_jut3",
+    data_naixement: "30/06/1980",
+    dni: "12456789Y",
+    tel: "689556666",
+    sexe: "M",
+    tipus: "j",
+  },
+
+  {
+    nom: "Jut4_nom4",
+    cognom: "Cog_jut4",
     data_naixement: "30/06/2002",
-    dni: "14893123U",
+    dni: "77951423KU",
     tel: "789963255",
     sexe: "NB",
     tipus: "j",
@@ -172,6 +172,9 @@ class Corredor extends Persona {
     this._federat = federat;
     this._dorsal = dorsal;
     this._rendiment = rendiment;
+    this._isRunning = false;
+    this._horaInici;
+    this._horaFinal;
   }
 
   iniciarCursa() {}
@@ -204,8 +207,12 @@ class Cursa {
     this._categoria._jutges = new Array();
   }
 
+  afegirParticipant() {
+    literals.push(document.formParent.literal.value);
+  }
+
   getRandomRendiment() {
-    return Math.random() * (1.1 - 0.9);
+    return Math.random() * (0.09 - 0.01);
   }
   inscriureCorredors(literals) {
     let dorsal = 0;
@@ -271,7 +278,6 @@ class Cursa {
   iniciarCursa() {
     cursa._horaInici = Date.now();
 
-    showDate();
     for (let x = 0; x < this._categoria._inscrits.length; x++) {
       const element = this._categoria._inscrits[x];
       var newWindow = this.openWindowbyDorsal(element);
@@ -299,19 +305,15 @@ class Categoria {
 //control de pas
 class ControlParcial {}
 
-function updateDateTime() {
-  let time_mms = 500;
-  myTime = setTimeout("showDate()", time_mms);
-}
-function showDate() {
-  let x = new Date();
-
-  document.formParent.p_datetime.value =
-    x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
-  updateDateTime();
-}
-
 function init(params) {
-  cursa = new Cursa(null, new Categoria("Categoria_2", "all", 10, 100, 5000)); //creem una cursa TODO literals
+  let nomCategoria = "Categoria_2";
+  let sexo = ["M", "F", "NB", "ALL"];
+  let edadMinima = 10;
+  let edadMaxima = 100;
+  let distancia = 1000;
+  cursa = new Cursa(
+    null,
+    new Categoria(nomCategoria, sexo[4], edadMinima, edadMaxima, distancia)
+  ); //creem una cursa TODO literals
   console.log("cursa inicialitzada");
 }

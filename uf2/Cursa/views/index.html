@@ -42,25 +42,35 @@
                                         onclick="cursa.inscriureCorredors(literals);"> <i class="fa fa-lock"></i>
                                         Inscriure corredors
                                     </button>
-                                    <div class="form-group form-primary">
+                                </div>
+                           
+                                <div class="col-md-12 mb 3 text-center">
+                                    <div class="form-group form-primary ">
                                         <input type="text" class="form-control" name="literal" value=""
                                             placeholder="Introdueix literal/s" id="literal" />
+
+                                        <button type="button"
+                                            class="btn btn-primary btn-md btn-block waves-effect text-center m-2"
+                                            onclick="cursa.afegirParticipant()">
+                                            Afegir corredors
+                                        </button>
+
                                     </div>
                                 </div>
-                                <div class="col-md-12 text-center">
+                                <div class="text-center">
                                     <button type="button"
-                                        class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20"
+                                        class="btn btn-primary btn-md btn-block waves-effect text-center m-2"
                                         onclick="cursa.iniciarCursa()"> <i class="fa fa-lock"></i>
                                         Iniciar Cursa
                                     </button>
                                 </div>
-                                <div class="col-md-12 text-center">
+                                <!-- <div class="col-md-12 text-center">
                                     <input type="text" name="p_datetimeinit" id="p_datetimeinit">
                                 </div>
                                 <div class="col-md-12 text-center">
-                                    hora
+
                                     <input type="text" name="p_datetime" id="p_datetime">
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </form>
