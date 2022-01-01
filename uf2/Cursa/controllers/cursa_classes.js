@@ -312,6 +312,6 @@ function showDate() {
 }
 
 function init(params) {
-  cursa = new Cursa(null, new Categoria("Categoria_2", "all", 10, 100, 5000)); //creem una cursa TODO literals
+  cursa = new Cursa(null, new Categoria("Categoria_2", "all", 10, 100, 500)); //creem una cursa TODO literals
   console.log("cursa inicialitzada");
 }

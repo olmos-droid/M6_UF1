@@ -32,37 +32,43 @@
                                             <input type="text" name="c_document" id="c_document" class="form-control">
                                         </div>
                                     </h6>
-                                    <p class="card-text"> Aqui podien anar algunes observacions dels jutges o
-                                        voluntaris.
-                                    </p>
-                                    <div class="col-md-12 text-center">
-                                        <button type="button"
-                                            class="btn btn-warning btn-md waves-effect text-center m-b-20"><i
-                                                class="fa fa-lock"></i>
-                                            Sancionar
-                                        </button>
+                                    <form action="/action_page.php">
+                                        <label for="textareaSancions">Comentaris</label>
+                                        <textarea id="textareaSancions" name="textareaSancions" rows="4" cols="50">
+aqui va la informacio del jutges
+                                        </textarea>
+                                        <br><br>
+                                        <input type="submit" value="Submit">
+                                    </form>
 
-                                        <button type="button"
-                                            class="btn btn-danger btn-md btn-block waves-effect text-center m-b-20"><i
-                                                class="fa fa-lock"></i>
-                                            Registrar retirada
-                                        </button>
-                                    </div>
-                                    <div class="col-md-12 text-center">
-                                        <input type="text" name="c_datetime" >
-                                        <input type="text" name="c_rendiment">
-                                        <input type="text" name="c_metres" >
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                                    <p>Click the "Submit" button and the form-data will be sent to a page on the
+                                        server called "action_page.php".</p>
+</body>
+<div class="col-md-12 text-center">
+    <button type="button" class="btn btn-warning btn-md waves-effect text-center m-b-20"><i class="fa fa-lock"></i>
+        Sancionar
+    </button>
 
-                </div>
-            </div>
-        </div>
-    </section>
-    <div id="footer"></div>
+    <button type="button" class="btn btn-danger btn-md btn-block waves-effect text-center m-b-20"><i
+            class="fa fa-lock"></i>
+        Registrar retirada
+    </button>
+</div>
+<div class="col-md-12 text-center">
+    <input type="text" name="c_datetime">
+    <input type="text" name="c_rendiment">
+    <input type="text" name="c_metres">
+</div>
+</form>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+<div id="footer"></div>
 </body>
 <script src="../controllers/cursa_child.js"></script>
 
