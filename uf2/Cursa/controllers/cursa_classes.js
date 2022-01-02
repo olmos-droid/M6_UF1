@@ -262,7 +262,7 @@ class Cursa {
   }
 
   getRandomRendiment() {
-    return Math.random() * (4.501 - 3.001) + 3.001;
+    return Math.random() * (4.30 - 3.3) + 3.3;
   }
   inscriureCorredors(literals) {
     let dorsal = 0;
@@ -303,7 +303,7 @@ class Cursa {
             literal.tel,
             literal.sexe,
             literal.edad,
-            true,
+            false,
             dorsal,
             this.getRandomRendiment()
           )
