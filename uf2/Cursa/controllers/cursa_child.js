@@ -6,18 +6,17 @@ function updateMetres() {
   if (document.formChild.c_metres.value >= opener.cursa._categoria._metres) {
     console.log(Date.now());
   }
-  let time_mms = 20;
+  let time_mms = 15;
   myTime = setTimeout("showMetres()", time_mms);
 }
 function showMetres() {
   const metres =
-    corredorActual._rendiment * (Date.now() - opener.cursa._horaInici);
+    corredorActual._rendiment * ((Date.now() - opener.cursa._horaInici)/1000);
   document.formChild.c_metres.value = Number.parseFloat(metres).toPrecision(5);
   checkPoint(metres, opener.cursa._categoria._metres);
 
   if (document.formChild.c_metres.value < metresTotals) {
     updateMetres();
-  
   }
 }
 

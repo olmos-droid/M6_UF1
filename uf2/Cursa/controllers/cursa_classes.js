@@ -173,8 +173,8 @@ class Corredor extends Persona {
     this._dorsal = dorsal;
     this._rendiment = rendiment;
     this._isRunning = false;
-    this._horaInici=null;
-    this._horaFinal=null;
+    this._horaInici = null;
+    this._horaFinal = null;
   }
 
   iniciarCursa() {}
@@ -207,16 +207,11 @@ class Cursa {
     this._categoria._jutges = new Array();
   }
 
-  afegirParticipant() {
-    literals.push(document.formParent.literal.value);
-  }
-
   getRandomRendiment() {
-  return Math.random() * (4.501 - 3.001) + 3.001;
+    return Math.random() * (4.501 - 3.001) + 3.001;
   }
   inscriureCorredors(literals) {
     let dorsal = 0;
-    let dateDate = new Date();
 
     for (let literal of literals) {
       if (literal.tipus == "v") {
@@ -273,6 +268,10 @@ class Cursa {
       }
     }
   }
+  afegirParticipant() {
+    let triarParticipants;
+    this._inscrits;
+  }
   openWindowbyDorsal(element) {
     var newWin = window.open("runnerView.html", element._dorsal);
   }
@@ -281,8 +280,8 @@ class Cursa {
 
     for (let x = 0; x < this._categoria._inscrits.length; x++) {
       const corredor = this._categoria._inscrits[x];
-            corredor._isRunning = true;
-             corredor.num_metres = 0;
+      corredor._isRunning = true;
+      corredor.num_metres = 0;
 
       var newWindow = this.openWindowbyDorsal(corredor);
     }
@@ -298,11 +297,11 @@ class Categoria {
     this._metres = metres;
     this._inscrits = new Array(inscrits);
   }
-  generarClassificació() {
-return this._inscrits.sort((corredorA, corredorB) =>
+  generarClassificacio() {
+    return this._inscrits.sort((corredorA, corredorB) =>
       corredorA._horaFinal > corredorB._horaFinal ? 1 : -1
-    ); //ordenem per _hora final 
-   }
+    ); //ordenem per _hora final
+  }
   generarAssegurances() {
     return;
   }
@@ -315,8 +314,8 @@ function init(params) {
   let nomCategoria = "Categoria_2";
   let sexo = ["M", "F", "NB", "ALL"]; //fer les clasificacion de sexe
   let edadMinima = 10; //fer les clasificacion per edad
-  let edadMaxima = 100;
-  let distancia = 10000;
+  let edadMaxima = 80;
+  let distancia = 100;
   cursa = new Cursa(
     null,
     new Categoria(nomCategoria, sexo[4], edadMinima, edadMaxima, distancia)
