@@ -173,8 +173,8 @@ class Corredor extends Persona {
     this._dorsal = dorsal;
     this._rendiment = rendiment;
     this._isRunning = false;
-    this._horaInici;
-    this._horaFinal;
+    this._horaInici=null;
+    this._horaFinal=null;
   }
 
   iniciarCursa() {}
@@ -212,7 +212,7 @@ class Cursa {
   }
 
   getRandomRendiment() {
-    return Math.random() * (0.09 - 0.01);
+  return Math.random() * (4.501 - 3.001) + 3.001;
   }
   inscriureCorredors(literals) {
     let dorsal = 0;
@@ -230,9 +230,6 @@ class Cursa {
             literal.sexe
           )
         );
-        console.log(
-          "voluntari : " + literal.nom + " " + literal.cognom + " afegit"
-        );
       }
       if (literal.tipus == "j") {
         cursa._categoria._jutges.push(
@@ -244,9 +241,6 @@ class Cursa {
             literal.tel,
             literal.sexe
           )
-        );
-        console.log(
-          "jutge : " + literal.nom + " " + literal.cognom + " afegit"
         );
       }
 
@@ -265,7 +259,14 @@ class Cursa {
           )
         );
         console.log(
-          "corredor : " + literal.nom + " " + literal.cognom + " afegit"
+          cursa._categoria._inscrits[dorsal]._dorsal +
+            " " +
+            cursa._categoria._inscrits[dorsal]._nom +
+            " " +
+            cursa._categoria._inscrits[dorsal]._cognom +
+            " " +
+            cursa._categoria._inscrits[dorsal]._rendiment
+          // "corredor : " + literal.nom + " " + literal.cognom + " afegit"
         );
 
         dorsal++;
@@ -279,8 +280,11 @@ class Cursa {
     cursa._horaInici = Date.now();
 
     for (let x = 0; x < this._categoria._inscrits.length; x++) {
-      const element = this._categoria._inscrits[x];
-      var newWindow = this.openWindowbyDorsal(element);
+      const corredor = this._categoria._inscrits[x];
+            corredor._isRunning = true;
+             corredor.num_metres = 0;
+
+      var newWindow = this.openWindowbyDorsal(corredor);
     }
   }
 }
@@ -295,8 +299,10 @@ class Categoria {
     this._inscrits = new Array(inscrits);
   }
   generarClassificació() {
-    return this._categoria._inscrits.sort(); //cuidado que aqui hay que ordenar por horade arribada
-  }
+return this._inscrits.sort((corredorA, corredorB) =>
+      corredorA._horaFinal > corredorB._horaFinal ? 1 : -1
+    ); //ordenem per _hora final 
+   }
   generarAssegurances() {
     return;
   }
@@ -307,10 +313,10 @@ class ControlParcial {}
 
 function init(params) {
   let nomCategoria = "Categoria_2";
-  let sexo = ["M", "F", "NB", "ALL"];
-  let edadMinima = 10;
+  let sexo = ["M", "F", "NB", "ALL"]; //fer les clasificacion de sexe
+  let edadMinima = 10; //fer les clasificacion per edad
   let edadMaxima = 100;
-  let distancia = 1000;
+  let distancia = 10000;
   cursa = new Cursa(
     null,
     new Categoria(nomCategoria, sexo[4], edadMinima, edadMaxima, distancia)

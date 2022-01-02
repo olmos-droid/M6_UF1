@@ -17,6 +17,7 @@ function showMetres() {
 
   if (document.formChild.c_metres.value < metresTotals) {
     updateMetres();
+  
   }
 }
 
@@ -27,12 +28,11 @@ let rend = corredorActual._rendiment;
 document.formChild.c_rendiment.value = Number.parseFloat(rend).toPrecision(2);
 document.formChild.c_horaInici.value = new Date(corredorActual._horaInici);
 
-
 function checkPoint(metresActual, metresTotalCursa) {
   if (metresActual >= metresTotalCursa) {
-    corredorActual._horaFinal= Date.now();
-document.formChild.c_horaFinal.value = new Date(corredorActual._horaFinal);
-corredorActual._isRunning = true;
+    corredorActual._horaFinal = Date.now();
+    document.formChild.c_horaFinal.value = new Date(corredorActual._horaFinal);
+    corredorActual._isRunning = true;
     // alert(corredorActual._nom + " ja ha aribat");
   }
 }
