@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+    <title>untitled</title>
+    <style type="text/css">
+        input {
+            width: 80px;
+            font-size: 75%;
+            background: beige;
+            padding: 2px;
+            margin: 2px;
+        }
+    </style>
+    <script type="text/javascript">
+
+        function popit(n) {
+            var w, wname = 'pop' + n;
+            var l = 100 * n + 100;
+            var t = 100 * n + 100;
+            w = window.open('javascript:"<h4>' + wname + '</h4>"',
+                wname,
+                'width=200,height=200,left=' + l + ',top=' + t + ',status= 0');
+            addName(wname);
+            return false;
+        }
+
+        function addName(wname) {
+            self.name += (wname + '@');
+        }
+
+        function closeByName(wname) {
+            window.open('javascript:"<script>window.close()<\/script>"', wname);
+        }
+
+        function closeAll() {
+            var wname,
+                wcoll = self.name.split('@');
+            self.name = '';
+            for (var i = 0, l = wcoll.length; i < l; ++i)
+                if (wname = wcoll[i])
+                    closeByName(wname);
+            return false;
+        }
+
+    </script>
+</head>
+
+<body>
+    <form>
+        <input id="w1" type="button" value="open pop 1" onclick="popit(1)" />
+        <br />
+        <input id="w2" type="button" value="open pop 2" onclick="popit(2)" />
+        <br />
+        <input id="w3" type="button" value="open pop 3" onclick="popit(3)" />
+        <br /><br />
+        <input id="ca" type="button" value="close all" onclick="closeAll()" />
+    </form>
+</body>
+
+</html>
