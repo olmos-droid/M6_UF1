@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursa TAP</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="./css/cursa.css" />
+
+</head>
+
+<body>
+    <div class="container text-center">
+        <h2>Cursa </h2>
+        <br>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs justify-content-center" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#cursa">CURSA</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " data-toggle="tab" href="#clasificacio">CLASIFICACIO</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#controldepas">CONTROL DE PAS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#pendentsarribar">PENDENTS D'ARRIBAR</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div id="cursa" class="container tab-pane active"><br>
+                <div class="card-header">CURSA</div>
+                <section class="login-block">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form class="md-float-material form-material" name="formParent" action="#"
+                                    method="POST">
+                                    <div class="auth-box card">
+                                        <div class="card-block">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h3 class="text-center heading">
+                                                        CURSA
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 text-center">
+                                                <button type="button"
+                                                    class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20"
+                                                    onclick="init()"> <i class="fa fa-lock"></i>
+                                                    Crear Cursa
+                                                </button>
+
+                                            </div>
+                                            <div class="col-md-12 text-center">
+                                                <button type="button"
+                                                    class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20 "
+                                                    onclick="cursa.inscriureCorredors(literals);"> <i
+                                                        class="fa fa-lock"></i>
+                                                    Inscriure corredors
+                                                </button>
+                                            </div>
+
+                                            <div class="col-md-12 mb 3 text-center">
+                                                <div class="form-group form-primary ">
+                                                    <input type="text" class="form-control" name="literal" value=""
+                                                        placeholder="Introdueix literal/s" id="literal" />
+
+                                                    <button type="button"
+                                                        class="btn btn-primary btn-md btn-block waves-effect text-center m-2"
+                                                        onclick="cursa.afegirParticipant()">
+                                                        Afegir corredors
+                                                    </button>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 mb 3 text-center">
+                                                <button type="button"
+                                                    class="btn btn-primary btn-md btn-block waves-effect text-center m-2"
+                                                    onclick="cursa.iniciarCursa()">
+                                                    iniciar Cursa
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div id="clasificacio" class="container tab-pane fade"><br>
+                <div class="card border-secondary mb-5" style="max-width: 100%; margin: 1rem;">
+                    <div class="card-header">CLASIFICACIO</div>
+                    <div class="card-body text-secondary">
+                        <h5 class="card-title">Secondary card title</h5>
+                        <p class="card-text">Aqui va la clasificacio.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="controldepas" class="container tab-pane fade"><br>
+                <div class="card border-secondary mb-5" style="max-width: 100%; margin: 1rem;">
+                    <div class="card-header">CONTROL DE PAS</div>
+                    <div class="card-body text-secondary">
+                        <!-- <h5 class="card-title">Secondary card title</h5> -->
+                        <p class="card-text">Aqui va el control de pas.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="pendentsarribar" class="container tab-pane fade"><br>
+                <div class="card border-secondary mb-5" style="max-width: 100%; margin: 1rem;">
+                    <div class="card-header">PENDENTS D'ARRIBAR</div>
+                    <div class="card-body text-secondary">
+                        <!-- <h5 class="card-title">Secondary card title</h5> -->
+                        <p class="card-text">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="../controllers/cursa_classes.js"></script>
+
+</html>
