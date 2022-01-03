@@ -197,6 +197,7 @@ const literals = [
     tipus: "j",
   },
 ];
+
 class Persona {
   constructor(nom, cognom, data_naixement, document, tel, sexe, edad) {
     this._nom = nom;
@@ -262,7 +263,7 @@ class Cursa {
   }
 
   getRandomRendiment() {
-    return Math.random() * (4.30 - 3.3) + 3.3;
+    return Math.random() * (4.3 - 3.3) + 3.3;
   }
   inscriureCorredors(literals) {
     let dorsal = 0;
@@ -361,7 +362,6 @@ class Cursa {
       this.openWindowbyDorsal(corredor);
     });
   }
-  
 }
 
 class Categoria {
@@ -374,9 +374,25 @@ class Categoria {
     this._aptes = new Array();
   }
   generarClassificacio() {
-    return this._inscrits.sort((corredorA, corredorB) =>
+    let categoriaNom = (document.getElementById("categoriaNom").innerText =
+      this._nom);
+    let clas = this._aptes.slice(); //copio el array de la manera mes eficient que hi ha
+    clas.sort((corredorA, corredorB) =>
       corredorA._horaFinal > corredorB._horaFinal ? 1 : -1
     ); //ordenem per _hora final
+    //generar el html de la clasificacio
+
+    let p = document.getElementById("llistaClassificacio");
+    let ul = document.createElement("ul");
+    p.appendChild(ul);
+    clas.forEach(corredor=>{
+      let li = document.createElement("li")
+      let li_text = document.createTextNode(corredor._dorsal + " " + corredor._nom+" "+ corredor._cognom);
+      li.appendChild(li_text);
+      ul.appendChild(li);
+
+    })
+    return clas;
   }
   generarAssegurances() {
     return;
@@ -390,7 +406,7 @@ function init(params) {
   let sexo = ["M", "F", "NB", "ALL"]; //fer les clasificacion de sexe
   let edadMinima = 0; //fer les clasificacion per edad
   let edadMaxima = 0;
-  let distancia = 100;
+  let distancia = 50;
   let categoria = new Categoria(
     nomCategoria,
     "M",

@@ -1,7 +1,7 @@
 const metresTotals = opener.cursa._categoria._metres;
 const corredorActual = opener.cursa._categoria._aptes[self.name];
 corredorActual._horaInici = opener.cursa._horaInici;
-const time_mms = 15;
+const time_mms = 10;
 let metres;
 let myTime;
 
