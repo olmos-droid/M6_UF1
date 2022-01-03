@@ -382,16 +382,51 @@ class Categoria {
     ); //ordenem per _hora final
     //generar el html de la clasificacio
 
-    let p = document.getElementById("llistaClassificacio");
-    let ul = document.createElement("ul");
-    p.appendChild(ul);
-    clas.forEach(corredor=>{
-      let li = document.createElement("li")
-      let li_text = document.createTextNode(corredor._dorsal + " " + corredor._nom+" "+ corredor._cognom);
-      li.appendChild(li_text);
-      ul.appendChild(li);
+    let tbody = document.getElementById("tbodyClassificacio");
+    let posCorredor = 0;
+    clas.forEach((corredor) => {
+      posCorredor++;
+      let tr = document.createElement("tr");
+      let thscoperow = document.createElement("th");
+      let thscoperowtext = document.createTextNode(posCorredor);
+      thscoperow.setAttribute("scope", "row");
+      thscoperow.appendChild(thscoperowtext);
+      tr.appendChild(thscoperow);
+      let td = document.createElement("td");
+      let td_text = document.createTextNode(corredor._cognom);
+      td.appendChild(td_text);
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+      td = document.createElement("td");
+      td_text = document.createTextNode(corredor._nom);
+      td.appendChild(td_text);
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+      td = document.createElement("td");
+      td_text = document.createTextNode(corredor._dorsal);
+      td.appendChild(td_text);
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+      let diff =corredor._horaFinal - corredor._horaInici;
+      corredor.diff=diff;
+      td = document.createElement("td");
+      td_text = document.createTextNode(diff);
+      td.appendChild(td_text);
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+    });
 
-    })
+    // let p = document.getElementById("llistaClassificacio");
+    // let ul = document.createElement("ul");
+    // p.appendChild(ul);
+    // clas.forEach((corredor) => {
+    //   let li = document.createElement("li");
+    //   let li_text = document.createTextNode(
+    //     corredor._dorsal + " " + corredor._nom + " " + corredor._cognom
+    //   );
+    //   li.appendChild(li_text);
+    //   ul.appendChild(li);
+    // });
     return clas;
   }
   generarAssegurances() {
