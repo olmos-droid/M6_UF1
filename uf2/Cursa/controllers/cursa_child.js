@@ -25,6 +25,7 @@ function showMetres() {
   checkPoint(metres, opener.cursa._categoria._metres);
 }
 // document.formChild.c_running.value =  corredorActual._isRunning.too;
+document.getElementById("title").innerHTML = corredorActual._dorsal + " " + corredorActual._nom +" "+  corredorActual._cognom
 document.formChild.c_name.value =
   corredorActual._nom + "  " + corredorActual._cognom;
 document.formChild.c_document.value = corredorActual._document;

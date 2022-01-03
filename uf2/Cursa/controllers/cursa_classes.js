@@ -361,6 +361,7 @@ class Cursa {
       this.openWindowbyDorsal(corredor);
     });
   }
+  
 }
 
 class Categoria {
