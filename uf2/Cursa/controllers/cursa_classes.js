@@ -1,5 +1,41 @@
+const y = [
+  {
+    nom: "tere",
+    cognom: "Vopez",
+    data_naixement: "1980/08/13",
+    document: "47714462L",
+    tel: "664134214",
+    sexe: "F",
+    edad: 50,
+    federat: true,
+    tipus: "r",
+  },
+  {
+    nom: "will",
+    cognom: "Vopez",
+    data_naixement: "1980/08/13",
+    document: "47714462L",
+    tel: "664134214",
+    sexe: "F",
+    edad: 50,
+    federat: true,
+    tipus: "r",
+  },
+];
+const x = [
+  {
+    nom: "Vane",
+    cognom: "Vopez",
+    data_naixement: "1980/08/13",
+    document: "47714462L",
+    tel: "664134214",
+    sexe: "F",
+    edad: 50,
+    federat: true,
+    tipus: "r",
+  },
+];
 const literals = [
-  // {"nom":"Vane","cognom":"Vopez","data_naixement":"1980/08/13","document":"47714462L","tel":"664134214","sexe":"F","edad":50,"federat":true,"tipus":"r"}  {"nom": "Vane","cognom": "Vopez","data_naixement": "1980/08/13","document": "47714462L","tel": "664134214","sexe": "F","edad": 50,"federat": true,"tipus": "r",},
   {
     nom: "Maria",
     cognom: "Opez",
@@ -208,12 +244,12 @@ class Corredor extends Persona {
     _tel,
     _sexe,
     _edad,
-    _federat,
+    federat,
     dorsal,
     rendiment
   ) {
     super(_nom, _cognom, _data_naixement, _document, _tel, _sexe, _edad);
-    this._federat = "federat";
+    this._federat = federat;
     this._dorsal = dorsal;
     this._rendiment = rendiment;
     this._isRunning = false;
@@ -228,7 +264,7 @@ class Corredor extends Persona {
 
 class Jutge extends Persona {
   constructor(_nom, _cognom, _data_naixement, _document, _tel, _sexe) {
-    super(_nom, _cognom, "data_naixement", _document, _tel, _sexe);
+    super(_nom, _cognom, _data_naixement, _document, _tel, _sexe);
   }
   sancionarCorredor() {}
   registrarRetirada() {}
@@ -252,11 +288,18 @@ class Cursa {
   }
   afegirLiteral() {
     let literal = document.getElementById("afegirliteral").value;
+    console.log(literal);
+    let literalJSON = JSON.parse(literal);
+    console.log(literalJSON);
+    
+    literals.push(literalJSON);
+    console.log(literals);
 
-    if (literal != "" || literal != null || literal!=undefined) {
-      literal = JSON.parse(literal);
-      literals.push(literal);
-    }
+    // if (literal != "" || literal != null || literal!=undefined) {
+    //   literal = JSON.parse(Object.keys(literal));
+    //   literals.push(literal);
+    // }
+    return literal;
   }
 
   getRandomRendiment() {
