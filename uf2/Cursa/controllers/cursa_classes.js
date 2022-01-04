@@ -1,15 +1,5 @@
 const literals = [
-  {
-    nom: "Vane",
-    cognom: "Vopez",
-    data_naixement: "1980/08/13",
-    document: "47714462L",
-    tel: "664134214",
-    sexe: "F",
-    edad: 50,
-    federat: true,
-    tipus: "r",
-  },
+  // {"nom":"Vane","cognom":"Vopez","data_naixement":"1980/08/13","document":"47714462L","tel":"664134214","sexe":"F","edad":50,"federat":true,"tipus":"r"}  {"nom": "Vane","cognom": "Vopez","data_naixement": "1980/08/13","document": "47714462L","tel": "664134214","sexe": "F","edad": 50,"federat": true,"tipus": "r",},
   {
     nom: "Maria",
     cognom: "Opez",
@@ -72,7 +62,6 @@ const literals = [
     nom: "ITrans",
     cognom: "Topez",
     data_naixement: "2000/08/13",
-    document: "11199885Y",
     document: "664134214",
     sexe: "NB",
     edad: 101,
@@ -219,12 +208,12 @@ class Corredor extends Persona {
     _tel,
     _sexe,
     _edad,
-    federat,
+    _federat,
     dorsal,
     rendiment
   ) {
     super(_nom, _cognom, _data_naixement, _document, _tel, _sexe, _edad);
-    this._federat = federat;
+    this._federat = "federat";
     this._dorsal = dorsal;
     this._rendiment = rendiment;
     this._isRunning = false;
@@ -239,15 +228,15 @@ class Corredor extends Persona {
 
 class Jutge extends Persona {
   constructor(_nom, _cognom, _data_naixement, _document, _tel, _sexe) {
-    super(_nom, _cognom, _data_naixement, _document, _tel, _sexe);
+    super(_nom, _cognom, "data_naixement", _document, _tel, _sexe);
   }
   sancionarCorredor() {}
   registrarRetirada() {}
 }
 
 class Voluntari extends Persona {
-  constructor(_nom, _cognom, _data_naixement, _document, _tel, _sexe) {
-    super(_nom, _cognom, _data_naixement, _document, _tel, _sexe);
+  constructor(_nom, _cognom, data_naixement, _document, _tel, _sexe) {
+    super(_nom, _cognom, data_naixement, _document, _tel, _sexe);
   }
 }
 
@@ -260,6 +249,14 @@ class Cursa {
     this._corredors = new Array();
     this._voluntaris = new Array();
     this._jutges = new Array();
+  }
+  afegirLiteral() {
+    let literal = document.getElementById("afegirliteral").value;
+
+    if (literal != "" || literal != null || literal!=undefined) {
+      literal = JSON.parse(literal);
+      literals.push(literal);
+    }
   }
 
   getRandomRendiment() {
@@ -382,7 +379,7 @@ class Categoria {
     clas.sort((corredorA, corredorB) =>
       corredorA._horaFinal > corredorB._horaFinal ? 1 : -1
     );
-    //generar el html de la clasificacio  
+    //generar el html de la clasificacio
     let tbody = document.getElementById("tbodyClassificacio");
     let posCorredor = 0;
     clas.forEach((corredor) => {

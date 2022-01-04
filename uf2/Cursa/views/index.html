@@ -37,6 +37,7 @@
         </ul>
 
         <!-- Tab panes -->
+
         <div class="tab-content">
             <div id="cursa" class="container tab-pane active "><br>
                 <div class="card-header">CURSA</div>
@@ -63,6 +64,31 @@
                                                 </button>
 
                                             </div>
+                                            <div class="text-center">
+                                                <p>Exemple literal</p>
+                                                <p>
+                                                    {"nom":"Roser","cognom":"Olmos","data_naixement":"1986/08/13","document":"47714462L","tel":"664134214","sexe":"F","edad":35,"federat":true,"tipus":"r"}
+                                                </p>
+                                            </div>
+
+                                            <div class="col-md-12 mb 3 text-center">
+                                                <div class="form-group form-primary ">
+                                                    <input type="text" class="form-control" name="literal" value=""
+                                                        placeholder="Introdueix literal/s" id="afegirliteral" />
+                                                    <button type="button"
+                                                        class="btn btn-primary btn-md btn-block waves-effect text-center m-2"
+                                                        onclick="cursa.afegirLiteral()">
+                                                        Afegir literal
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-12 mb 3 text-center">
+                                                    <button type="button"
+                                                        class="btn btn-primary btn-md btn-block waves-effect text-center m-2"
+                                                        onclick="cursa.afegirParticipant()">
+                                                        Afegir corredor
+                                                    </button>
+                                                </div>
+                                            </div>
                                             <div class="col-md-12 text-center">
                                                 <button type="button"
                                                     class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20 "
@@ -70,20 +96,6 @@
                                                         class="fa fa-lock"></i>
                                                     Inscriure Participants
                                                 </button>
-                                            </div>
-
-                                            <div class="col-md-12 mb 3 text-center">
-                                                <div class="form-group form-primary ">
-                                                    <input type="text" class="form-control" name="literal" value=""
-                                                        placeholder="Introdueix literal/s" id="literal" />
-
-                                                    <button type="button"
-                                                        class="btn btn-primary btn-md btn-block waves-effect text-center m-2"
-                                                        onclick="cursa.afegirParticipant()">
-                                                        Afegir corredor
-                                                    </button>
-
-                                                </div>
                                             </div>
                                             <div class="col-md-12 mb 3 text-center">
                                                 <button type="button"
@@ -93,7 +105,8 @@
                                                 </button>
                                             </div>
                                             <div class="col-md-12 mb 3 text-center">
-                                                <button type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-2"
+                                                <button type="button"
+                                                    class="btn btn-primary btn-md btn-block waves-effect text-center m-2"
                                                     onclick="cursa._categoria.generarClassificacio()">
                                                     Generar Clasificacio
                                                 </button>
@@ -111,17 +124,17 @@
                     <div class="card-header">CLASIFICACIO</div>
                     <div class="card-body text-secondary">
                         <h5 class="card-title" id="categoriaNom"></h5>
-             
-                      </table>
+
+                        </table>
                         <!-- <p id="llistaClassificacio" class="card-text"></p> -->
                     </div>
-                    <div  width="100%">
+                    <div width="100%">
                         <table id="taulaClassificacio" class="table table-hover">
                             <thead id="theadClassificacio">
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Cognom</th>
-                                    <th scope="col" >Nom</th>
+                                    <th scope="col">Nom</th>
                                     <th scope="col">Dorsal</th>
                                     <th scope="col">Temps</th>
                                 </tr>
@@ -129,9 +142,9 @@
                             <tbody id="tbodyClassificacio">
 
                             </tbody>
-                            
-                               
-                            
+
+
+
                         </table>
                     </div>
                 </div>
@@ -152,7 +165,7 @@
                         <!-- <h5 class="card-title">Secondary card title</h5> -->
                         <p class="card-text">
                         <ul class="list-group list-group-flush">
-                          
+
                             <li class="list-group-item">Vestibulum at eros</li>
                         </ul>
                         </p>
@@ -161,8 +174,8 @@
             </div>
         </div>
     </div>
-
 </body>
+
 <script src="../controllers/cursa_classes.js"></script>
 
 </html>
