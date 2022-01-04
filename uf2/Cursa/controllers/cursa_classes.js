@@ -288,18 +288,13 @@ class Cursa {
   }
   afegirLiteral() {
     let literal = document.getElementById("afegirliteral").value;
-    console.log(literal);
     let literalJSON = JSON.parse(literal);
-    console.log(literalJSON);
-    
-    literals.push(literalJSON);
-    console.log(literals);
+    let objkeyjson = Object.keys(literalJSON);
 
-    // if (literal != "" || literal != null || literal!=undefined) {
-    //   literal = JSON.parse(Object.keys(literal));
-    //   literals.push(literal);
-    // }
-    return literal;
+    for (let i = 0; i < objkeyjson.length; i++) {
+      const newPlayer = literalJSON[i];
+      literals.push(newPlayer);
+    }
   }
 
   getRandomRendiment() {
