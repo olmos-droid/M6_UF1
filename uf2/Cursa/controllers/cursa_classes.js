@@ -263,7 +263,7 @@ class Cursa {
   }
 
   getRandomRendiment() {
-    return Math.random() * (4.3 - 3.3) + 3.3;
+    return Math.random() * (4.5 - 2.0) + 2.0;
   }
   inscriureCorredors(literals) {
     let dorsal = 0;
@@ -376,12 +376,13 @@ class Categoria {
   generarClassificacio() {
     let categoriaNom = (document.getElementById("categoriaNom").innerText =
       this._nom);
-    let clas = this._aptes.slice(); //copio el array de la manera mes eficient que hi ha
+    //copio el array de la manera mes eficient que hi ha
+    let clas = this._aptes.slice();
+    //ordenem per _hora final
     clas.sort((corredorA, corredorB) =>
       corredorA._horaFinal > corredorB._horaFinal ? 1 : -1
-    ); //ordenem per _hora final
-    //generar el html de la clasificacio
-
+    );
+    //generar el html de la clasificacio  
     let tbody = document.getElementById("tbodyClassificacio");
     let posCorredor = 0;
     clas.forEach((corredor) => {
@@ -407,8 +408,8 @@ class Categoria {
       td.appendChild(td_text);
       tr.appendChild(td);
       tbody.appendChild(tr);
-      let diff =corredor._horaFinal - corredor._horaInici;
-      corredor.diff=diff;
+      let diff = corredor._horaFinal - corredor._horaInici;
+      corredor.diff = diff;
       td = document.createElement("td");
       td_text = document.createTextNode(diff);
       td.appendChild(td_text);
@@ -416,17 +417,6 @@ class Categoria {
       tbody.appendChild(tr);
     });
 
-    // let p = document.getElementById("llistaClassificacio");
-    // let ul = document.createElement("ul");
-    // p.appendChild(ul);
-    // clas.forEach((corredor) => {
-    //   let li = document.createElement("li");
-    //   let li_text = document.createTextNode(
-    //     corredor._dorsal + " " + corredor._nom + " " + corredor._cognom
-    //   );
-    //   li.appendChild(li_text);
-    //   ul.appendChild(li);
-    // });
     return clas;
   }
   generarAssegurances() {
