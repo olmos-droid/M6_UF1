@@ -1,14 +1,18 @@
 const metresTotals = opener.cursa._categoria._metres;
 const corredorActual = opener.cursa._categoria._aptes[self.name];
 corredorActual._horaInici = opener.cursa._horaInici;
+let barrax100 = 0;
+const barra = document.getElementById("barra");
 const time_mms = 10;
-let metres;
+let metres = 0;
 let myTime;
 
 function updateMetres() {
   myTime = setTimeout("showMetres()", time_mms);
 }
 function showMetres() {
+  barrax100 = (metres * 100) / metresTotals;
+
   if (corredorActual._isRunning) {
     metres =
       corredorActual._rendiment *
@@ -17,6 +21,9 @@ function showMetres() {
 
     document.formChild.c_metres.value =
       Number.parseFloat(metres).toPrecision(5);
+
+    
+    barra.style.width = barrax100+"%";
 
     if (document.formChild.c_metres.value < metresTotals) {
       updateMetres();

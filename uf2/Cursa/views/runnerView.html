@@ -29,44 +29,53 @@
                                     </h4>
                                     <h6 class="card-cognom mb-2 text-muted">
                                         <div class="form-group form-primary">
-                                            <input size="25" type="text" name="c_document" id="c_document" class="form-control" readonly>
+                                            <input size="25" type="text" name="c_document" id="c_document"
+                                                class="form-control" readonly>
                                         </div>
                                     </h6>
-                                   <div>
-                                       <textarea id="textareaSancions" name="textareaSancions" rows="4" cols="30" placeholder="informacio del jutges relacionado sancio/retirada">
+                                    <div>
+                                        <textarea id="textareaSancions" name="textareaSancions" rows="4" cols="30"
+                                            placeholder="informacio del jutges relacionado sancio/retirada">
                                     </textarea>
-                                   </div>
-
-                                      
-                                        <button type="button" class="btn btn-warning btn-md btn-block waves-effect text-center m-b-20"><i class="fa fa-lock"></i>
-                                            Registrar Sancio
-                                        </button>
-                                   
-
-                                        <button type="button"
-                                            class="btn btn-danger btn-md btn-block waves-effect text-center m-b-20"><i
-                                                class="fa fa-lock"></i>
-                                            Registrar retirada
-                                        </button>
                                     </div>
-                                    <div class="text-center ">
-                                        <input type="datetime" name="c_horaInici" class="form-control" readonly>
-                                        <input type="text" name="c_horaFinal" class="form-control" readonly>
-                                        <input type="text" name="c_rendiment" class="form-control" readonly>
-                                        <input type="text" name="c_metres" class="form-control" readonly>
-                                        <input type="text" name="c_metres2" class="form-control" readonly>
-                                        <input type="text" name="c_running" class="form-control" readonly>
-                                    </div>
-                                </form>
+
+
+                                    <button type="button"
+                                        class="btn btn-warning btn-md btn-block waves-effect text-center m-b-20"><i
+                                            class="fa fa-lock"></i>
+                                        Registrar Sancio
+                                    </button>
+
+
+                                    <button type="button"
+                                        class="btn btn-danger btn-md btn-block waves-effect text-center m-b-20"><i
+                                            class="fa fa-lock"></i>
+                                        Registrar retirada
+                                    </button>
                             </div>
+                            <div class="text-center ">
+                                <input type="datetime" name="c_horaInici" class="form-control" readonly>
+                                <input type="text" name="c_horaFinal" class="form-control" readonly>
+                                <input type="text" name="c_rendiment" class="form-control" readonly>
+                                <input type="text" name="c_metres" class="form-control" readonly>
+                                <input type="text" name="c_metres2" class="form-control" readonly>
+                                <div class="progress">
+
+                                    <div id="barra" class="progress-bar progress-bar-striped progress-bar-animated">
+                                    </div>
+                                </div>
+                                <input type="text" name="c_running" class="form-control" readonly>
+                            </div>
+                            </form>
                         </div>
                     </div>
+                </div>
 
-</div>
-</div>
-</div>
-</section>
-<div id="footer"></div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <div id="footer"></div>
 </body>
 <script src="../controllers/cursa_child.js"></script>
 
