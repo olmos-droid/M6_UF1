@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./fromParentToChild.js"></script> -->
+</head>
+<script>
+    function post_value() {
+        // window.opener.location.href = "parent.html" //hace un refresh al parent window
+        opener.document.f1.p_name.value = document.frn.c_name.value;
+        // self.close();
+    }
+
+</script>
+
+<body">
+    <h1>Child Window</h1>
+    <form action="" method="post" name=frn>
+        Enter your name <input type="text" name="c_name" id="c_name" value="3232" >
+        <input type="button" value="Pass data and Close me" onclick=post_value();>
+    </form>
+    <script>
+        document.getElementById('c_name').value = opener.document.getElementById('t1').value
+    </script>
+
+
+
+
+    </body>
+
+</html>

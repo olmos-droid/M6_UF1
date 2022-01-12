@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./fromParentToChild.js"></script> -->
+    <script>
+        function to_open() {
+            tm = window.open('child.html', 'namechild', 'width=550,height=170,left=150,top=200')
+        }
+    </script>
+    <script>
+        function to_close() {
+            tm.close();
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="container p-1 m-1 ">
+        <h1>
+            Parent Window
+        </h1>
+        <input type="text" name="t1" id="t1" value="plusplsu">
+        <input type="button" value="Open child" onclick=to_open();>
+        <input type="button" value="Close child" onclick=to_close();>
+        <br>
+        <script>
+            dt = new Date()
+            document.write(dt)
+        </script><br>
+        <form method="post" action="" name=f1>
+            your name <input type="text" name="p_name" size=10>
+        </form>
+
+    </div>
+
+</body>
+
+</html>
