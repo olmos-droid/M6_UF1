@@ -12,6 +12,7 @@ function updateMetres() {
 }
 function showMetres() {
   barrax100 = (metres * 100) / metresTotals;
+  barra.style.width = barrax100 + "%";
 
   if (corredorActual._isRunning) {
     metres =
@@ -23,7 +24,7 @@ function showMetres() {
       Number.parseFloat(metres).toPrecision(5);
 
     
-    barra.style.width = barrax100+"%";
+    
 
     if (document.formChild.c_metres.value < metresTotals) {
       updateMetres();
@@ -47,6 +48,7 @@ document.formChild.c_horaInici.value = new Date(corredorActual._horaInici);
 
 function checkPoint(metresActual, metresTotalCursa) {
   if (metresActual >= metresTotalCursa) {
+    barra.style.width = barrax100 + "%";
     corredorActual._isRunning = false;
     document.formChild.c_metres2.value = metres;
     corredorActual._horaFinal = Date.now();
