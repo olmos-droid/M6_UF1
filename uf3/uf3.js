@@ -14,3 +14,28 @@ Esdeveniments HTML
 Fes un programa en JavaScript que al carregar la pàgina llanci un esdeveniment per a dir-te hola, i al tancar-la, tornar-la a carregar o canviar de pàgina, et digui adéu.
 */
 
+
+
+function ex2(){
+    const button = document.getElementById('btn1');
+    button.addEventListener ('mouseup',event  => {alert('has desapretat el boto esquerra') });
+}
+function ex21() {
+  const button = document.getElementById("btn2");
+  button.addEventListener("click", (event) => {
+  changeColor(button)
+  });
+}
+function ex22() {
+  const button = document.getElementById("btn3");
+  button.addEventListener("click", (event) => {
+    changeColor2(button);
+  });
+}
+
+function changeColor2(btn) {
+  btn.style.background = "blue";
+}
+function changeColor(btn) {
+  btn.style.color = "blue";
+}
